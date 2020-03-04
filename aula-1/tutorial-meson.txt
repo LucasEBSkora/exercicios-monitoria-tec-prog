@@ -1,0 +1,38 @@
+Meson é um build system, ou seja, um sistema usado para compilar programas.
+Isso vai facilitar muito a vida de vocêsdepois, quando estiverem fazendo o jogo
+e tiverem intermináveis pastas e arquivos. Não sou um expert nele, mas aqui estão
+alguns pontos principais, o suficiente para a disciplina.
+
+Primeiro de tudo, sua instalação. O jeito mais fácil de instalá-lo é usando o pip, o 
+instalador de pacotes do Python. Nos computadores da ut, já é para estar instalado.
+No seu computador, é fácil achar tutoriais de instalação, e se for no linux 
+é provável que você só precise de um comando.
+então, você roda o comando
+
+pip install --user meson
+
+esse comando instala o meson somente para o usuário, o que significa que você pode
+instalá-lo sem a senha de administrador dos computadores da ut. não usar a flag "--user"
+significa que seria instalado em todo o sistema, mas isso exige permissões que não temos.
+
+Se tudo der certo, só falta usá-lo:
+
+vá para a pasta principal do seu projeto, seja qual for, e crie um arquivo chamado
+meson.build
+
+na primeira linha, escreva o comando project. O primeiro argumento é o nome do projeto,
+e o segundo a linguagem de programação usada.
+
+Note que todas as strings são marcadas por apóstrofes, ou "aspas simples"
+
+project('tutorial', 'cpp') 
+
+Então, você chama o comando executable, com o primeiro argumento sendo o nome 
+do arquivo executável que será gerado, e o segundo, os arquivos fontes a compilar.
+também é possível acessar esse argumento escrevendo "sources :", um argumento nomeado.
+É certo que você terá mais de um arquivo de código fonte, então é necessário criar um vetor
+de strings com o nome de todos os arquivos fontes, que será passado para a 
+função executable.
+
+src = ['main.cpp', 'Personagem.cpp']
+executable('tutorial', sources : src)
