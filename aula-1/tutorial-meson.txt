@@ -1,19 +1,35 @@
 Meson é um build system, ou seja, um sistema usado para compilar programas.
-Isso vai facilitar muito a vida de vocêsdepois, quando estiverem fazendo o jogo
+Isso vai facilitar muito a vida de vocês depois, quando estiverem fazendo o jogo
 e tiverem intermináveis pastas e arquivos. Não sou um expert nele, mas aqui estão
 alguns pontos principais, o suficiente para a disciplina.
 
 Primeiro de tudo, sua instalação. O jeito mais fácil de instalá-lo é usando o pip, o 
 instalador de pacotes do Python. Nos computadores da ut, já é para estar instalado.
-No seu computador, é fácil achar tutoriais de instalação, e se for no linux 
-é provável que você só precise de um comando.
-então, você roda o comando
+Também há um instalador pronto para o windows. no linux, você precisa rodar esses comandos
+(assumindo que o pip3 está instalado):
 
 pip install --user meson
+pip install --user ninja
 
 esse comando instala o meson somente para o usuário, o que significa que você pode
 instalá-lo sem a senha de administrador dos computadores da ut. não usar a flag "--user"
-significa que seria instalado em todo o sistema, mas isso exige permissões que não temos.
+significa que seria instalado em todo o sistema, mas isso exige permissões que não temos. 
+No seu computador pessoal, o "--user" não é necessário.
+
+Porém, o sistema não vai conseguir encontrar o programa, pois ele é instalado em uma
+pasta do usuário. Para isso funcionar, temos que adicionar o caminho para o programa no
+na lista onde o terminal procura executáveis. Fazemos isso com os seguintes dois comandos:
+(isso, em teoria, não será necessário no seu computador pessoal)
+
+echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+
+esse comando adiciona a linha de texto entre apóstrofes no final do arquivo após o ">>"
+
+source ~/.bashrc
+
+E esse comando faz o terminal recarregar o caminho usado. Em princípio, só será necessário
+para que você possa usar o meson imediatamente, pois o terminal sempre recarrega o arquivo
+quando reinicia.
 
 Se tudo der certo, só falta usá-lo:
 
