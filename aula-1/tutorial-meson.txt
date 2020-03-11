@@ -8,8 +8,8 @@ instalador de pacotes do Python. Nos computadores da ut, já é para estar insta
 Também há um instalador pronto para o windows. no linux, você precisa rodar esses comandos
 (assumindo que o pip3 está instalado):
 
-pip install --user meson
-pip install --user ninja
+pip3 install --user meson
+pip3 install --user ninja
 
 esse comando instala o meson somente para o usuário, o que significa que você pode
 instalá-lo sem a senha de administrador dos computadores da ut. não usar a flag "--user"
