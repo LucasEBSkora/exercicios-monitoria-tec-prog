@@ -62,22 +62,25 @@ pkgconfigpathadd $sfml_dir
 popd > /dev/null
 
 # We're done! Let's just check if pkg-config now knows where sfml lives
-pkg-config --exists sfml-all
-if [ $? -eq 0 ]; then
-    echo '----------------------------------------------------'
-    echo '         SFML was successfully installed!'
-    echo ' Now add the two following lines to your ~/.bashrc:'
-    echo '----------------------------------------------------'
-    echo 'PATH=$PATH:'"${sfml_dir}/lib/SFML"
-    echo 'export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+"$PKG_CONFIG_PATH:"}'"${sfml_dir}\""
-    echo '----------------------------------------------------'
-    echo '                  And then run:'
-    echo '----------------------------------------------------'
-    echo 'source ~/.bashrc'
-    echo '----------------------------------------------------'
-    echo '        After that, SFML is ready for use!'
-    echo '----------------------------------------------------'
-else
-    echo 'Something went wrong'
-fi
+# pkg-config --exists sfml-all
+# if [ $? -eq 0 ]; then
+#     echo '----------------------------------------------------'
+#     echo '         SFML was successfully installed!'
+#     echo ' Now add the two following lines to your ~/.bashrc:'
+#     echo '----------------------------------------------------'
+#     echo 'PATH=$PATH:'"${sfml_dir}/lib/SFML"
+#     echo 'export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+"$PKG_CONFIG_PATH:"}'"${sfml_dir}\"" 
+#     echo '----------------------------------------------------'
+#     echo '                  And then run:'
+#     echo '----------------------------------------------------'
+#     echo 'source ~/.bashrc'
+#     echo '----------------------------------------------------'
+#     echo '        After that, SFML is ready for use!'
+#     echo '----------------------------------------------------'
+# else
+#    echo 'Something went wrong'
+# fi
 
+echo 'PATH=$PATH:'"${sfml_dir}/lib" >> "$HOME/.bashrc"
+echo 'export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+"$PKG_CONFIG_PATH:"}'"${sfml_dir}\""  >> "$HOME/.bashrc"
+source ~/.bashrc
