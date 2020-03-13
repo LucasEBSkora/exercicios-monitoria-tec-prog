@@ -1,11 +1,7 @@
-#include "Personagem.cpp"
+#include "Principal.hpp"
 
 int main () {
-  Personagem amigo(0, 0, "amiguinho");
-
-  for (int i = 0; i < 11; ++i) {
-    amigo.incrementar(i,-i);
-    amigo.desenhar();
-  }
+  Principal principal;
+  principal.executar();
   return 0;
 }
