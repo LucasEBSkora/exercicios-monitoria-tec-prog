@@ -83,4 +83,6 @@ popd > /dev/null
 
 echo 'PATH=$PATH:'"${sfml_dir}/lib" >> "$HOME/.bashrc"
 echo 'export PKG_CONFIG_PATH="${PKG_CONFIG_PATH:+"$PKG_CONFIG_PATH:"}'"${sfml_dir}\""  >> "$HOME/.bashrc"
+echo 'export LD_LIBRARY_PATH="$HOME/SFML-2.5.1/lib:$LD_LIBRARY_PATH"' >> "$HOME/.bashrc"
+
 source ~/.bashrc
