@@ -1,16 +1,42 @@
-#include <stdio.h>
-#include <string>
-#include "Personagem.hpp"
+#include "Personagem.hpp" 
 
-  Personagem::Personagem(float X, float Y, char* Nome) {
-    x = X;
-    y = Y;
-    strcpy(nome, Nome);
+
+#include <iostream>
+
+namespace exercicio {
+
+  Personagem::Personagem(float xInicial, float yInicial, const char* caminhoTextura) : x{xInicial}, y{yInicial}, text{nullptr} {
+    //x = xInicial;
+    //y = yInicial;
+    //text = nullptr;
+
+    if (caminhoTextura) {
+
+      text = new sf::Texture();
+      text->loadFromFile(caminhoTextura);
+      
+    }
+    corpo.setTexture(text);
+    corpo.setSize(sf::Vector2f(200.0f, 200.0f));
+    corpo.setOrigin(corpo.getSize() / 2.0f);
+
   }
-  void Personagem::incrementar(float dx, float dy) {
-    x += dx;
-    y += dy;
+
+  Personagem::~Personagem() {
+   if (text) delete text;
   }
-  void Personagem::desenhar() {
+
+  void Personagem::atualizar() {
+    x *= 1.2;
+    y += 0.006;
+
+    corpo.setPosition(sf::Vector2f(x, y));
+  }
+
+  void Personagem::desenhar(sf::RenderWindow* janela) {
     
+    janela->draw(corpo);
+
   }
+
+}

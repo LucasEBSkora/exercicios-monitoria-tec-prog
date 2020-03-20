@@ -1,0 +1,4 @@
+O git é um sistema de controle de versionamento, ou seja, um sistema usado para compilar programas.
+Isso vai facilitar muito a vida de vocês depois, quando estiverem fazendo o jogo
+e tiverem intermináveis pastas e arquivos. Não sou um expert nele, mas aqui estão
+alguns pontos principais, o suficiente para a disciplina.

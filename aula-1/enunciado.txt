@@ -1,23 +1,27 @@
 Crie um programa com uma classe principal com os seguintes atributos:
     * uma janela do SFML
     * um objeto de uma classe Personagem
+    
 e os seguintes métodos:
     * construtor
     * destrutor
-    * metodo desenhar que precisa de uma textura SFML e uma posição
+
     * metodo rodar que chama o metodo atualizar e desenhar do Personagem em loop 
 
 e a classe Personagem com os seguintes atributos:
-    * um ponteiro para textura do SFML  
-    * duas variáveis inteiras para a posição do Personagem
-    * um ponteiro para objeto da classe principal
-e os seguintes métodos:
-    * Construtor, que precisa de uma posição inicial, de uma string dizendo o caminho para a textura
-         a usar e um ponteiro para objeto da classe principal
-    * Destrutor, que desaloca a textura
-    * método atualizar, que muda o valor da posição (teste de vários jeitos e velocidades diferentes)
-    * Método desenhar, que desenha a textura na posição usando o método desenhar de Principal
-    pelo ponteiro
+    * um sf::Texture com a textura do personagem
+    * um sf::RectShape para desenhar o personagem
+    * duas variáveis float para a posição do Personagem
 
+
+e os seguintes métodos:
+    * Construtor, que precisa de uma posição inicial, de uma string dizendo o caminho para a textura a usar
+    * Destrutor, que desaloca a textura
+    * método atualizar, que muda o valor da posição
+    * Método desenhar, que desenha a textura na posição e precisa de um ponteiro pra sf::RenderWindow como parâmetro
+
+as duas classes devem ser colocadas em um namespace chamado exercicio
+
+Também faça o diagrama de classes UML para esse programa.
 
 (pontos extra no meu coração se compilar em meson)
