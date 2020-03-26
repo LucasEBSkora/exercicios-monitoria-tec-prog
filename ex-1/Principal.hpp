@@ -39,7 +39,7 @@ namespace exercicio {
 
   class Principal {
     private:
-      //RenderWindow* janela;
+      //RenderWindow* janela; //se usasse "using namespace sf", essa linha já funcionaria
       sf::RenderWindow* janela;
       Personagem amigo;
 
