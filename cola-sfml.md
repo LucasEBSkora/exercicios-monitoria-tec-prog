@@ -44,7 +44,7 @@ draw(sf::Drawable);
 
 Para verificar se ocorreu algum evento, se chama a função
 
-bool sf::RenderWindow(sf::Event & event);
+bool sf::RenderWindow::pollEvent(sf::Event & event);
 
 que retorna verdadeiro se ocorreu algum evento, e, se ocorreu, carrega esse evento no parãmetro passado. Eventos são coisas como apertar teclas, mexer o mouse, clicar para fechar a janela, etc. Mais explicações na parte sobre essa classe
 
