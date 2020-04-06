@@ -1,0 +1,36 @@
+Gerenciador de eventos:
+  
+  Primeiro de tudo, para esse tutorial, será importante ter classes com comportamentos diferentes, mas q precisem de eventos.
+  Por isso, mudaremos Personagem para Desenhavel, e tornaremos todos os métodos virtuais, além de adicionar mais um método virtual que recebe umo objeto 
+  da classe Evento ( que, no fundo, é uma cópia da classe sf::Event, feita apenas em nome do desacoplamento total) chamado tratarEvento.
+  Criaremos, então, duas classes derivadas: Inimigo, que na verdade manterá o comportamento da classe Personagem anterior, e Heroi, que se moverá de acordo com os
+  botões do teclado.
+
+  Mas antes tinhamos uma lista de personagens, e agora temos uma de Desenhaveis! Por isso, transformaremos a lista antiga em um modelo, e criaremos uma classe lista 
+  desacoplada ListaDesenhaveis.
+
+  Iremos agora criar um gerenciador de eventos usando recursos do C++ moderno, nomeadamente, a classe std::function, que permite tratar uma função como objeto.
+
+  Crie uma classe GerenciadorEventos com os seguintes atributos:
+
+    um campo estático int chamado ProximoId;
+
+    um ponteiro para sf::RenderWindow, que será usado para acessar o método pollEvent;
+
+    dois mapas std::map<int, std::function<void(Event)>> (leia o segundo argumento como "funções com parametro Evento e retorno void"),
+    um para eventos relacionados ao mouse e outro para eventos relacionados ao teclado.
+    
+    crie um método setJanela para inicializar o valor do atriuto sf::RenderWindow*
+
+    crie dois pares de métodos:
+      int adicionarOuvinte_____(std::function<void(Event)> chamada);
+      void removerOuvinte_____(int id);
+
+    substituindo os _____ por Teclado em um par e Mouse no outro. Basicamente, 
+    se um objeto precisa saber quando um evento ocorre, chamará o método apropriado
+    acima e retornará um ID único. Se o objeto não precisar mais ouvir esse evento,
+    pode chamar o método de remoção passando esse id.
+
+
+  também permitiremos que a classe GerenciadorGrafico faça animações, sobrecarregando o método desenhar para receber também dois Vector2D de unsigned int:
+  o primeiro representando quantos frames existem na textura desejada, e o segundo qual das posições se deve desenhar.

@@ -1,0 +1,36 @@
+Gerenciador gráfico desacoplado - V1: 
+
+OBSERVAÇÃO!!!!
+Essa é uma de inúmeras maneiras de resolver esse problema, e não tem nada errado com usar a biblioteca diretamente. Entretanto, posso garantir que o uso de uma classe
+como essa irá fazer seu código mais claro e desacoplado, além de já basicamente deixar tudo relacionado ao SFML pronto desde o início.
+
+  Antes de tudo, como queremos desacoplar o máximo possível o programa da biblioteca usada, precisamos de uma modelo para substituir sf::Vector2. Por isso, criaremos
+  nossa própria classe vetor como modelo!
+
+  Crie uma classe modelo "Vetor2D" que representa um vetor/ponto em R2. Ela deve ter operadores de soma, subtração, multiplicação e divisão por escalar, produto escalar,
+  e métodos que retornem seu módulo e versor, além de um método para fazer projeção ortogonal (garanto que podem acabar sendo úteis).
+
+  Crie uma classe GerenciadorGrafico que possui os seguintes atributos:
+
+    uma sf::RenderWindow agregada por ponteiro;
+
+    um sf::view, representando a parte da janela mostrada;
+
+    um std::map<std::string, sf::Texture*>, que será usada para armazenar todas as texturas usadas (a chave será o caminho para a imagem em questão, que deverá ficar 
+      armazenada no objeto que precisa daquela textura);
+
+
+  e os seguintes métodos:
+
+    mostrar(), que simplesmente chamará o método display da RenderWindow;
+
+    limpar(int r, int g, int b), que limpa a tela para a cor passada como argumento;
+
+    um método bool carregarTextura(), que recebe uma string representando o caminho no sistema de arquivos para a imagem à carregar, a carrega e guarda no mapa, 
+      retornando se houve sucesso no carregamento;
+
+    um método desenhar(), que recebe uma string (o caminho usado no método carregar) e um Vetor2D que representa a posição na tela para desenhar;
+
+    Um método centralizar(), que recebe um Vetor2D e centraliza a tela nele.
+
+OBSERVAÇÃO 2 - Por enquanto, essa classe não saberá lidar com a tela ser redimensionada, e não fará animações.

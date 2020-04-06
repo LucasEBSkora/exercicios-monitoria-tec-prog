@@ -151,9 +151,25 @@ Time é uma classe que representa um valor de tempo. Normalmente é retornada po
 Para receber o valor de Tempo como segundos, chame a função asSeconds().
 Existem também asMilliseconds() e as Microseconds().
 
+# classe sf::View
 
+Essa classe é usada para representar uma "câmera" retangular dentro da tela. Ela permite que você mostre apenas uma parte do que está sendo desenhado, ao invés do todo. Em essência, pode ser usada para dar zoom e mover a tela com o personagem sem tem que mover todos os personagens junto.
 
+Seu construtor recebe dois Vector2f, um representando seu centro, e o outro suas dimensões. existem também métodos separados setCenter e setSize.
 
+Para aplicar uma View a uma RenderWindow, use o método
+sf::RenderWindow::setView().
+
+Exemplo:
+
+sf::RenderWindow janela;
+sf::View camera;
+
+camera.setCenter(200, 200); //camera.setCenter(sf::Vector2f(200, 200));
+
+camera.setSize(400, 300); //camera.setSize(sf::Vector2f(400,300));
+
+janela.setView(camera);
 
 # Observação
-#### Essa cola será completada quando os exercícios prescritos necessitarem de conteúdos adicionais. Para acessar a documentação completa do SFML 2.5.1, acesse o link https://www.sfml-dev.org/documentation/2.5.1/
+#### Essa cola será completada quando os exercícios prescritos necessitarem de conteúdos adicionais, e só cobre os métodos imprescindíveis. É sempre bom acessar a documentação do SFML 2.5.1 para ler o que mais essas classes podem fazer (https://www.sfml-dev.org/documentation/2.5.1/).
