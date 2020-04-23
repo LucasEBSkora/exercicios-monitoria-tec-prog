@@ -26,11 +26,11 @@ namespace exercicio {
   Principal::Principal() : terminar{false}, janela{new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 1")} {
     //janela = new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 1");
     
-    listaAmigos.inserir( new Personagem(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(5, 5), "TheUndying.png"));
-    listaAmigos.inserir( new Personagem(sf::Vector2f(400.0f, 300.0f), sf::Vector2f(10, 0), "TheUndying.png"));
-    listaAmigos.inserir( new Personagem(sf::Vector2f(200.0f, 200.0f), sf::Vector2f(0, 5), "TheUndying.png"));
-    listaAmigos.inserir( new Personagem(sf::Vector2f(800.0f, 600.0f), sf::Vector2f(0, 0), "TheUndying.png"));
-    listaAmigos.inserir( new Personagem(sf::Vector2f(400.0f, 0.0f), sf::Vector2f(5, 5), "TheUndying.png"));
+    listaAmigos.inserir( new Personagem(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(5, 5), "../assets/TheUndying.png"));
+    listaAmigos.inserir( new Personagem(sf::Vector2f(400.0f, 300.0f), sf::Vector2f(10, 0), "../assets/TheUndying.png"));
+    listaAmigos.inserir( new Personagem(sf::Vector2f(200.0f, 200.0f), sf::Vector2f(0, 5), "../assets/TheUndying.png"));
+    listaAmigos.inserir( new Personagem(sf::Vector2f(800.0f, 600.0f), sf::Vector2f(0, 0), "../assets/TheUndying.png"));
+    listaAmigos.inserir( new Personagem(sf::Vector2f(400.0f, 0.0f), sf::Vector2f(5, 5), "../assets/TheUndying.png"));
 
 
 

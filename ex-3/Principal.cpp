@@ -27,11 +27,11 @@ namespace exercicio {
   Principal::Principal() : terminar{false} {
     //janela = new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 1");
     
-    listaAmigos.inserir( new Personagem(Vetor2F(0.0f, 0.0f), Vetor2F(5, 5), "TheUndying.png"));
-    listaAmigos.inserir( new Personagem(Vetor2F(400.0f, 300.0f), Vetor2F(10, 0), "TheUndying.png"));
-    listaAmigos.inserir( new Personagem(Vetor2F(200.0f, 200.0f), Vetor2F(0, 5), "TheUndying.png"));
-    listaAmigos.inserir( new Personagem(Vetor2F(700.0f, 500.0f), Vetor2F(0, 0), "TheUndying.png"));
-    listaAmigos.inserir( new Personagem(Vetor2F(400.0f, 0.0f), Vetor2F(5, 5), "TheUndying.png"));
+    listaAmigos.inserir( new Personagem(Vetor2F(0.0f, 0.0f), Vetor2F(5, 5), "../assets/TheUndying.png"));
+    listaAmigos.inserir( new Personagem(Vetor2F(400.0f, 300.0f), Vetor2F(10, 0), "../assets/TheUndying.png"));
+    listaAmigos.inserir( new Personagem(Vetor2F(200.0f, 200.0f), Vetor2F(0, 5), "../assets/TheUndying.png"));
+    listaAmigos.inserir( new Personagem(Vetor2F(700.0f, 500.0f), Vetor2F(0, 0), "../assets/TheUndying.png"));
+    listaAmigos.inserir( new Personagem(Vetor2F(400.0f, 0.0f), Vetor2F(5, 5), "../assets/TheUndying.png"));
 
 
     listaAmigos.inicializarPersonagens(gerenciadorGrafico);

@@ -21,7 +21,7 @@ namespace exercicio {
   */
 
 
-  Principal::Principal() : janela{new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 1")}, amigo{0, 0, "TheUndying.png"} {
+  Principal::Principal() : janela{new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 1")}, amigo{0, 0, "../assets/TheUndying.png"} {
     
     //janela = new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 1");
     //amigo = Personagem(0, 0, "TheUndying.png");
