@@ -22,7 +22,7 @@ int main() {
 #include <iostream>
 
 #include <fstream>
-#include "../json/single_include/nlohmann/json.hpp"
+#include "../json/json.hpp"
 
 //se executar() retornar um int
 int main() {
