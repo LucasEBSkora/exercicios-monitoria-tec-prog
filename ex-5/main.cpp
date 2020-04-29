@@ -20,10 +20,22 @@ int main() {
 */
 
 #include <iostream>
-//se executar retornar um int
+
+#include <fstream>
+#include "../json/single_include/nlohmann/json.hpp"
+
+//se executar() retornar um int
 int main() {
 
-  exercicio::Principal principal;
+  nlohmann::json arquivo;
 
-  return principal.executar();
+  std::ifstream arq("../assets/derp.json");
+
+  arq >> arquivo;
+
+  std::cout << arquivo << std::endl;
+
+  // exercicio::Principal principal;
+
+  // return principal.executar();
 }
