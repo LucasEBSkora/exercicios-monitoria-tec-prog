@@ -18,9 +18,9 @@ namespace exercicio {
       
       void operator +=(Vetor2D v);
       //void operator -=(Vetor2D v);
-      //void operator *=(int i);
-      //void operator *=(float f);
-      //void operator *=(double d);
+      void operator *=(int i);
+      void operator *=(float f);
+      void operator *=(double d);
       
       T operator *(Vetor2D v);
       T modulo();
@@ -32,6 +32,7 @@ namespace exercicio {
 
   typedef Vetor2D<float> Vetor2F;
   typedef Vetor2D<unsigned> Vetor2U;
+  
 }
 
   #include "Vetor2DImplementacao.hpp"

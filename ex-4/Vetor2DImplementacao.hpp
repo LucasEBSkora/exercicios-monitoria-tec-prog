@@ -52,6 +52,24 @@ namespace exercicio {
   }
 
   template <typename T>
+  void Vetor2D<T>::operator *=(int i) {
+    x *= i;
+    y *= i;
+  }
+
+  template <typename T>
+  void Vetor2D<T>::operator *=(float f) {
+    x *= f;
+    y *= f;
+  }
+
+  template <typename T>
+  void Vetor2D<T>::operator *=(double d) {
+    x *= d;
+    y *= d;
+  }
+
+  template <typename T>
   T Vetor2D<T>::operator *(Vetor2D<T> v) {
     return x*v.x + y*v.y;
   }

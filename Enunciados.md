@@ -112,7 +112,7 @@ substituindo os _____ por Teclado, Mouse e Outros. Basicamente, se um objeto pre
 
 Um gerenciador de Colisões é uma classe que determina se cada par de "seres que precisam colidir", como personagens e inimigos ou personagens e o cenário, estão colidindo. Para isso funcionar, precisamos fazer algumas modificações nas classes criadas anteriormente.
 
-  1. Crie uma novo arquivo .hpp que inclua a declaração de um namespace dentro do namespace exercício chamado "IDsDesenhaveis", e defina dentro dele um enum com cada tipo de Desenhavel (no nosso caso, até agora, temos apenas o Heroi e o Vilao).
+  1. Crie uma novo arquivo .hpp que inclua a declaração um enum chamado "IdsDesenhaveis" com cada tipo de Desenhavel (no nosso caso, até agora, temos apenas o Heroi e o Vilao).
   2. Na classe GerenciadorGrafico, crie um método getTamanho() que toma como parâmetro uma string e retorna as dimensões (como Vetor2F) da textura correspondente.
   3. Na classe Desenhavel, adicione um campo do tipo IDsDesenhaveis chamado "id", que usaremos para diferenciar com qual outro tipo de Desenhavel uma entidade está colidindo (e pode ser útil no futuro tbm)
   4. Na classe Desenhavel, adicione um campo dimensões (Vetor2F), que deve ser inicializado por chamada à GerenciadorGrafico::getDimensoes(). Adicione também um método getDimensoes().
@@ -120,7 +120,7 @@ Um gerenciador de Colisões é uma classe que determina se cada par de "seres qu
   6. Crie uma classe derivada de Desenhavel chamada "Colidivel", com método virtual puro colidir, que será chamada quando este Colidivel colidir com outro. Ele recebe como parametros o id, posicao e tamanho do outro Colidivel. As classes Heroi e Vilao devem agora estender Colidivel, e o método colidir nas duas deve ser escrito de forma à dar algum comportamento para os objetos das duas classes quando colidem entre si (para Vilao) e com a outra (Vilao com Heroi e Heroi com Vilao)
   
 Com essas modificações feitas, podemos trabalhar na nova Classe. Crie uma classe GerenciadorColisoes que possua os seguintes atributos:
-  1.  Um std::vector<Colidivel*>, onde armazenaremos todos os Colidiveis administrados por essa classe
+  1.  Um std::set<Colidivel*>, onde armazenaremos todos os Colidiveis administrados por essa classe
 e os seguintes métodos:
   2. Um construtor vazio.
   3. Um destrutor vazio.
