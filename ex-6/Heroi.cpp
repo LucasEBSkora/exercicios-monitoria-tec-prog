@@ -4,7 +4,7 @@
 
 namespace exercicio {
 
-  Heroi::Heroi(Vetor2F pos): Colidivel(pos, Vetor2F(), IdsDesenhaveis::heroi, "../assets/TheUndying.png") {
+  Heroi::Heroi(Vetor2F pos): Colidivel(pos, Vetor2F(), Ids::heroi, "../assets/TheUndying.png") {
 
   }
 
@@ -82,7 +82,7 @@ namespace exercicio {
     }
   }
 
-  void Heroi::colidir(IdsDesenhaveis::IdsDesenhaveis idOutro, Vetor2F posicaoOutro, Vetor2F dimensoesOutro) {
+  void Heroi::colidir(Ids::Ids idOutro, Vetor2F posicaoOutro, Vetor2F dimensoesOutro) {
     std::cout << "ai " << std::endl;
   }
 

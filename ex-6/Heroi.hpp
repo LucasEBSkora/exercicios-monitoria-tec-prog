@@ -21,7 +21,7 @@ namespace exercicio {
       void atualizar(float t);
       void desenhar(GerenciadorGrafico &g);
       void tratarEvento(const sf::Event &e);
-      void colidir(IdsDesenhaveis::IdsDesenhaveis idOutro, Vetor2F posicaoOutro, Vetor2F dimensoesOutro);
+      void colidir(Ids::Ids idOutro, Vetor2F posicaoOutro, Vetor2F dimensoesOutro);
   };
 
 }

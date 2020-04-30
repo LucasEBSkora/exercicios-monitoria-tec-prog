@@ -5,7 +5,7 @@
 #include "GerenciadorGrafico.hpp"
 #include "GerenciadorEventos.hpp"
 #include "GerenciadorColisoes.hpp"
-#include "IdsDesenhaveis.hpp"
+#include "Ids.hpp"
 
 namespace exercicio {
 
@@ -15,7 +15,7 @@ namespace exercicio {
       Vetor2F v;
       Vetor2F dimensoes;
       const char* caminho;
-      IdsDesenhaveis::IdsDesenhaveis id;
+      Ids::Ids id;
     public:
       
 
@@ -64,14 +64,14 @@ namespace exercicio {
 
       */
 
-      Desenhavel(Vetor2F pos, Vetor2F vel, IdsDesenhaveis::IdsDesenhaveis ID, const char* caminhoTextura = nullptr);
+      Desenhavel(Ids::Ids ID, Vetor2F pos = {0.0f, 0.0f}, Vetor2F vel = {0.0f, 0.0f}, const char* caminhoTextura = nullptr);
       virtual ~Desenhavel();
       virtual void inicializar(GerenciadorGrafico &gf, GerenciadorEventos& ge, GerenciadorColisoes& gc);
       virtual void atualizar(float t);
       virtual void desenhar(GerenciadorGrafico &g);
       const Vetor2F getPosicao() const;
       const Vetor2F getDimensoes() const;
-      const IdsDesenhaveis::IdsDesenhaveis getId() const;
+      const Ids::Ids getId() const;
   };
 
 }

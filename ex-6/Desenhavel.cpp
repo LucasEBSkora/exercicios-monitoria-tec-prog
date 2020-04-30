@@ -4,7 +4,7 @@
 
 namespace exercicio {
 
-  Desenhavel::Desenhavel(Vetor2F pos, Vetor2F vel, IdsDesenhaveis::IdsDesenhaveis ID, const char* caminhoTextura) : 
+  Desenhavel::Desenhavel(Ids::Ids ID, Vetor2F pos, Vetor2F vel, const char* caminhoTextura) : 
     posicao{pos}, v{vel}, caminho{caminhoTextura}, id{ID} {
 
   }
@@ -36,7 +36,7 @@ namespace exercicio {
     return dimensoes;
   }
 
-  const IdsDesenhaveis::IdsDesenhaveis Desenhavel::getId() const {
+  const Ids::Ids Desenhavel::getId() const {
     return id;
   }
 

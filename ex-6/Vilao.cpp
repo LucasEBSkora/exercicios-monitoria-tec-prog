@@ -4,7 +4,7 @@
 
 namespace exercicio {
   
-  Vilao::Vilao(Vetor2F pos, Vetor2F vel) : Colidivel(pos, vel, IdsDesenhaveis::vilao, "../assets/bloodboi.png") {
+  Vilao::Vilao(Vetor2F pos, Vetor2F vel) : Colidivel(pos, vel, Ids::vilao, "../assets/bloodboi.png") {
 
   }
   
@@ -20,11 +20,11 @@ namespace exercicio {
     gc.adicionarColidivel(this);
   }
 
-  void Vilao::colidir(IdsDesenhaveis::IdsDesenhaveis idOutro, Vetor2F posicaoOutro, Vetor2F dimensoesOutro) {
+  void Vilao::colidir(Ids::Ids idOutro, Vetor2F posicaoOutro, Vetor2F dimensoesOutro) {
 
-    if (idOutro == IdsDesenhaveis::heroi) {
+    if (idOutro == Ids::heroi) {
       std::cout << "nhac nhac nham nham heroi gostoso" << std::endl;
-    } else if (idOutro == IdsDesenhaveis::vilao) {
+    } else if (idOutro == Ids::vilao) {
 
       Vetor2F distancia = posicao - posicaoOutro;
 

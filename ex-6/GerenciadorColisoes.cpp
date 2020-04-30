@@ -10,7 +10,7 @@
 namespace exercicio {
 
 
-  GerenciadorColisoes::GerenciadorColisoes() {
+  GerenciadorColisoes::GerenciadorColisoes() : gt{nullptr} {
 
   }
 
@@ -28,7 +28,7 @@ namespace exercicio {
 
     Vetor2F distancia = posicao1 - posicao2;
 
-    // if (p1->getId() == IdsDesenhaveis::vilao) {
+    // if (p1->getId() == Ids::vilao) {
 
     //  std::cout << '(' << posicao1.x << ',' << posicao1.y << ')' << '(' << posicao2.x << ',' << posicao2.y << ')'<< '(' << distancia.x << ',' << distancia.y << ')'<< (dimensoes1.x + dimensoes2.x)/2.0 << ' ' << (dimensoes1.y + dimensoes2.y)/2. << '\n';
 
@@ -57,12 +57,17 @@ namespace exercicio {
     
     for (auto primeiro = colidiveis.begin(); primeiro != colidiveis.end(); primeiro++) {
       
+      Colidivel *p1 = *primeiro;
+      
+      auto tilesColidindo = gt->checarColisoes(p1->getId(), p1->getPosicao(), p1->getDimensoes());
+
+      for (auto colisao : tilesColidindo) 
+        p1->colidir(colisao.id, colisao.posicao, colisao.tamanho);
       
       auto segundo = primeiro;
       segundo++;  
 
       for (; segundo != colidiveis.end(); segundo++) {
-        Colidivel *p1 = *primeiro;
         Colidivel *p2 = *segundo;
         
         
@@ -79,6 +84,10 @@ namespace exercicio {
       //std::cout << '\n' << std::endl;
     }
 
+  }
+
+  void GerenciadorColisoes::setGerenciadorTiles(GerenciadorTiles* Gt) {
+    gt = Gt;
   }
 
 }
