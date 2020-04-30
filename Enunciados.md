@@ -131,3 +131,79 @@ e os seguintes métodos:
   8. Um método privado estaoColidindo() que recebe dois ponteiros para Colidivel e retorna um valor booleano dizendo se eles estão colidindo.
 
 Um objeto dessa classe deve ser agregado na classe Principal, e o método verificarColisoes deve ser chamado dentro do loop em rodar().
+
+## Ex 6 - TileMap 
+
+Tilemap é uma técnica para desenho de mapas em jogos onde muitas partes do cenário se repetem, e são úteis por economizarem memória e serem 
+mais fáceis de modificar. Basicamente, ao invés de ter uma imagem enorme com todo o mapa do nível, você tem várias imagens representando os
+pedacinhos que se repetem (uma para um pedaçinho de areia, água, grama, uma armadilha, etc.) e um arquivo com uma matriz onde cada índice representa uma das diferentes imagens.
+
+Para implementar isso, precisaremos criar três classes:
+
+## classe Tilemap : 
+
+obs: short é uma versão mais curta de um inteiro, ocupando menos espaço na memória.
+
+Uma classe que cuida de carregar o mapa da memória e de permitir fácil acesso à ele. 
+Ela exige a seguinte classe aninhada:
+
+  ### classe TileMapLine
+  que deverá ter:
+   1. Um construtor que toma como parâmetros um ponteiro para unsigned short e um unsigned int que representa o comprimento da linha
+   2. Uma sobrecarga do operador de colchetes que retorna o valor naquela posição da linha.
+
+E precisa dos seguintes atributos:
+  1. Um Vetor2U chamado dimensoesMapa;
+  2. Um ponteiro para ponteiro de unsigned short (que armazenará a matriz);
+  3. Um const char* chamado caminho, que armazena o caminho para o mapa carregado;
+
+E os seguintes métodos:
+  1. Um construtor que toma como parâmetros um caminho para arquivo;
+  2. Um destrutor, que desalocará o mapa;
+  3. Um método getDimensoesMapa();
+  4. Um método imprimirMapa(), que imprime a matriz no terminal (para debug);
+  5. Um método setTile, que toma como parâmetros um Vetor2U representando uma posição no mapa e um unsigned short representando o novo código a ser armazenado naquela posição;
+  6. Uma sobrecarga do operador de colchetes que retorna um TileMapLine que aponta para a linha da matriz desejada.
+
+
+## Classe Tile :
+  Uma classe que representa um tipo de Tile (sim, uma só instância para todas as repetições do tile). 
+
+  Como essa classe também exige Ids que possam ser comparados com Ids de desenhaveis, modifique o nome do arquivo, enum e namespace IdDesenhaveis para Ids.
+
+Ela possui os seguintes atributos:
+  1. Um Ids::Ids ID (como o ID da classe Desenhavel)
+  2. Um const char* caminho para a imagem que deverá ser carregada
+  3. Um Vetor2F representando seu tamanho
+  4. Uma referência escondida constante para o GerenciadorGrafico, usada para desenhar a classe;
+e os seguintes métodos:
+  1. Um construtor, que toma como parâmetros um id, um caminho e um tamanho;
+  2. um destrutor vazio;
+  3. Uma função virtual inicializar, que toma como parâmetro uma referência escondida para o GerenciadorGrafico
+  4. Um método desenhar() constante que toma como parãmetro a posição onde ela deve ser desenhada
+  5. Um método getId;
+  6. Um método virtual colidir(), que recebe o Id e a posição do que colidiu com o tile, mas também a posição do tile que colidiu.
+
+
+## Classe GerenciadorTiles :
+
+Uma classe que gerenciará o Tilemap, os Tiles, e, no futuro, calculará as colisões dos outros colidíveis com o Mapa. 
+
+Defina uma struct IdPosicaoTamanho com os seguintes campos (que será o tipo de retorno de checarColisoes):
+  1. um unsigned short, que representa o id do tile que colidiu com o Colidivel passado para a função;
+  2. Um Vetor2F representando a posição do centro do tile;
+  3. Um vetor2F representando as dimensões do tile;
+
+Ela precisará dos seguintes atributos:
+  1. Um TileMap;
+  2. Um Vetor2F dimensoesTiles, que precisa ser igual às dimensões das imagens;
+  3. Um const char* caminho, que representa o caminho até o arquivo do tileMap;
+  4. Um std::vector<Tile> com os Tiles utilizados
+
+e dos seguintes métodos:
+  1. Um construtor, que toma como parâmetros um std::vector<Tile>, um Vetor2F representando as dimensões dos tiles, e o caminho para o arquivo do TileMap;
+  2. Um destrutor;
+  3. Uma sobrecarga do update() de Desenhavel que não faz nada, pois a classe não precisa ser atualizada (uma alternativa melhor seria restruturar um pouco as classes)
+  4. Uma sobrecarga do inicializar de Desenhavel, que inicializa os Tiles no vector;
+  5. Uma sobrecarga do desenhar() de Desenhavel
+  6. Um método checarColisoes() que recebe a posição, tamanho e Id de alguma objeto e retorna um std::vector<IdPosicaoTamanho> que descreve todos os tiles com o qual aqule Colidivel colidiu (se isso acontecer).
