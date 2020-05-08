@@ -8,6 +8,8 @@
 
 #include "GerenciadorColisoes.hpp"
 
+#include "GerenciadorTiles.hpp"
+
 #include "Desenhavel.hpp"
 
 #include "ListaDesenhaveis.hpp"
@@ -55,6 +57,7 @@ namespace exercicio {
       GerenciadorGrafico gerenciadorGrafico;
       GerenciadorEventos gerenciadorEventos;
       GerenciadorColisoes gerenciadorColisoes;
+      GerenciadorTiles gerenciadorTiles;
       sf::Clock relogio; //vide cola
       ListaDesenhaveis listaAmigos;
       unsigned int IDjanelaFechada;

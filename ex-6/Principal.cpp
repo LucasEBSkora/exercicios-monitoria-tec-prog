@@ -2,6 +2,7 @@
 
 #include "Heroi.hpp"
 #include "Vilao.hpp"
+#include "Tile.hpp"
 
 #include <iostream>
 
@@ -39,10 +40,23 @@ namespace exercicio {
     listaAmigos.inserir( new Vilao(Vetor2F(40.0f, -50.0f), Vetor2F(0, 10)));
 
 
+    gerenciadorTiles = GerenciadorTiles({
+      new Tile(Ids::errado, "../assets/TileVazio.png", {32.0f, 32.0f}),
+      new Tile(Ids::parede, "../assets/TempleWallTile.png", {32.0f, 32.0f}),
+      new Tile(Ids::espinho, "../assets/TempleSpikeObstacle.png", {32.0f, 32.0f}),
+      new Tile(Ids::fimDaFase, "../assets/LevelEndTile.png", {32.0f, 32.0f}),
+      new Tile(Ids::parede, "../assets/PlayerSpawnPoint.png", {32.0f, 32.0f}),
+      new Tile(Ids::buracoInfinito, "../assets/HoleObstacle.png", {32.0f, 32.0f}),
+      new Tile(Ids::parede, "../assets/CavernWallTile.png", {32.0f, 32.0f}),
+      new Tile(Ids::espinho, "../assets/CavernSpikeObstacle.png", {32.0f, 32.0f}),
+      new Tile(Ids::armadilha, "../assets/BulletObstacle.png", {32.0f, 32.0f}),
+    }, {32.0f, 32.0f}, "../assets/tilemap.json");
+
+
     listaAmigos.inicializarDesenhaveis(gerenciadorGrafico, gerenciadorEventos, gerenciadorColisoes);
 
     gerenciadorEventos.setJanela(gerenciadorGrafico.getJanela());
-
+    gerenciadorColisoes.setGerenciadorTiles(&gerenciadorTiles);
   }
 
   Principal::~Principal(){
@@ -66,6 +80,8 @@ namespace exercicio {
       listaAmigos.atualizarDesenhaveis(t.asSeconds());
       gerenciadorColisoes.verificarColisoes();
 
+
+      gerenciadorTiles.desenhar(gerenciadorGrafico);
       listaAmigos.desenharDesenhaveis(gerenciadorGrafico);
       
       gerenciadorGrafico.mostrar();

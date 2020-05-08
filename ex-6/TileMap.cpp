@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <fstream>
 
-#include "json/json.hpp"
+#include "../json/json.hpp"
 
 
 namespace exercicio {
@@ -30,12 +30,12 @@ namespace exercicio {
 
 
   TileMap::TileMap(const char* caminhoArquivo) : mapa{nullptr}, caminho{caminhoArquivo} {
-    if (mapa) CarregarMapa();
+    if (caminho) CarregarMapa();
   }
 
   TileMap::~TileMap() {
     if (mapa) {
-      for (int i = 0; i < dimensoesMapa.y; ++i)
+      for (unsigned int i = 0; i < dimensoesMapa.y; ++i)
         delete mapa[i];
       delete mapa;
     }
@@ -46,8 +46,8 @@ namespace exercicio {
   }
 
   void TileMap::imprimirMapa() const {
-    for (int i = 0; i < dimensoesMapa.y; ++i) {
-      for (int j = 0; i < dimensoesMapa.x; ++j) 
+    for (unsigned int i = 0; i < dimensoesMapa.y; ++i) {
+      for (unsigned int j = 0; j < dimensoesMapa.x; ++j) 
         std::cout << std::setw(2) << mapa[i][j] << ' ';
       std::cout << '\n';
     }
@@ -76,7 +76,7 @@ namespace exercicio {
   void TileMap::CarregarMapa() {
     std::ifstream arquivo(caminho);
 
-    if (arquivo.is_open()) {
+    if (!arquivo.is_open()) {
       std::cout << "Erro! arquivo no caminho \"" << caminho << "\" não pode ser aberto!" << std::endl;
       exit(527);
     }
@@ -84,8 +84,38 @@ namespace exercicio {
     nlohmann::json json;
 
     arquivo >> json;
-    
-    std::cout << json << std::endl;
+
+    json = json["layers"][0];
+
+    dimensoesMapa = {json["width"], json["height"]};
+
+    json = json["data"];
+
+    mapa = new unsigned short*[dimensoesMapa.y];
+
+    for (unsigned int i = 0; i < dimensoesMapa.y; ++i) mapa[i] = new unsigned short[dimensoesMapa.x];
+
+    unsigned int i = 0;
+    unsigned int j = 0;
+
+    for (unsigned short s : json) {
+      
+      if (j >= dimensoesMapa.x) {
+        j = 0;
+        ++i;
+      }
+
+      if (i >= dimensoesMapa.y) break;
+
+      mapa[i][j++] = s;
+
+    }
+
+    std::cout << dimensoesMapa << std::endl; 
+
+    imprimirMapa();
+
+
   }
 
 }

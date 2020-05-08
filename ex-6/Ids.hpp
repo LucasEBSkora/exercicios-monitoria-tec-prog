@@ -9,7 +9,12 @@ namespace exercicio {
       enum Ids {
         heroi,
         vilao, 
-        gerenciadorTiles,
+        parede,
+        espinho,
+        armadilha,
+        fimDaFase,
+        buracoInfinito,
+        errado
       };
     }
 

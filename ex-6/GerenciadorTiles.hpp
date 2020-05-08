@@ -5,13 +5,16 @@
 #include "TileMap.hpp"
 #include "Vetor2D.hpp"
 #include "Ids.hpp"
-#include "Desenhavel.hpp"
 
 #include <vector>
 
 namespace exercicio {
 
-  class GerenciadorTiles : public Desenhavel {
+  class GerenciadorEventos;
+  class GerenciadorGrafico;
+  class GerenciadorColisoes;
+
+  class GerenciadorTiles {
     
     public:
       typedef struct idpostam {
@@ -22,19 +25,20 @@ namespace exercicio {
     
 
     private:
-      TileMap tileMap;
-      Vetor2F DimensoesTiles;
+      std::vector<Tile*> tiles;
+      Vetor2F dimensoesTiles;
       const char* caminho;
-      std::vector<Tile> tiles;
+      TileMap tileMap;
 
     public: 
-      GerenciadorTiles(std::vector<Tile> Tiles, Vetor2F dimensoes, const char* caminhoArquivo);
+      GerenciadorTiles(std::vector<Tile*> Tiles = {}, Vetor2F dimensoes = {0.0f, 0.0f}, const char* caminhoArquivo = nullptr);
       ~GerenciadorTiles();
-      void atualizar(float t);
-      void inicializar(GerenciadorGrafico& gg, GerenciadorEventos& ge, GerenciadorColisoes& gc);
+      void inicializar(GerenciadorGrafico& gg, GerenciadorEventos& ge);
       void desenhar(GerenciadorGrafico& g) const;
       std::vector<IdPosicaoTamanho> checarColisoes(const Ids::Ids id, Vetor2F posicao, Vetor2F tamanho);      
 
+    private:
+      const Vetor2F converterCoordenadasMapaParaTela(const Vetor2U pos) const;
   };
 
   using IdPosicaoTamanho = GerenciadorTiles::IdPosicaoTamanho;
