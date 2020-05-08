@@ -147,10 +147,10 @@ obs: short é uma versão mais curta de um inteiro, ocupando menos espaço na me
 Uma classe que cuida de carregar o mapa da memória e de permitir fácil acesso à ele. 
 Ela exige a seguinte classe aninhada:
 
-  ### classe TileMapLine
+  ### classe LinhaTileMap
   que deverá ter:
-   1. Um construtor que toma como parâmetros um ponteiro para unsigned short e um unsigned int que representa o comprimento da linha
-   2. Uma sobrecarga do operador de colchetes que retorna o valor naquela posição da linha.
+   1. Um construtor que toma como parâmetros um ponteiro para const unsigned short e um unsigned int que representa o comprimento da linha
+   2. Uma sobrecarga do operador de colchetes que retorna o valor naquela posição da linha. 
 
 E precisa dos seguintes atributos:
   1. Um Vetor2U chamado dimensoesMapa;
@@ -160,10 +160,11 @@ E precisa dos seguintes atributos:
 E os seguintes métodos:
   1. Um construtor que toma como parâmetros um caminho para arquivo;
   2. Um destrutor, que desalocará o mapa;
-  3. Um método getDimensoesMapa();
-  4. Um método imprimirMapa(), que imprime a matriz no terminal (para debug);
-  5. Um método setTile, que toma como parâmetros um Vetor2U representando uma posição no mapa e um unsigned short representando o novo código a ser armazenado naquela posição;
-  6. Uma sobrecarga do operador de colchetes que retorna um TileMapLine que aponta para a linha da matriz desejada.
+  3. um método privado carregarMapa(), que é chamado no construtor;
+  4. Um método getDimensoesMapa() const;
+  5. Um método imprimirMapa() const, que imprime a matriz no terminal (para debug);
+  6. Um método setTile, que toma como parâmetros um Vetor2U representando uma posição no mapa e um unsigned short representando o novo código a ser armazenado naquela posição;
+  7. Uma sobrecarga do operador de colchetes que retorna um LinhaTileMap que aponta para a linha da matriz desejada.
 
 
 ## Classe Tile :
@@ -175,7 +176,7 @@ Ela possui os seguintes atributos:
   1. Um Ids::Ids ID (como o ID da classe Desenhavel)
   2. Um const char* caminho para a imagem que deverá ser carregada
   3. Um Vetor2F representando seu tamanho
-  4. Uma referência escondida constante para o GerenciadorGrafico, usada para desenhar a classe;
+  4. Uma referência escondida para o GerenciadorGrafico, usada para desenhar a classe;
 e os seguintes métodos:
   1. Um construtor, que toma como parâmetros um id, um caminho e um tamanho;
   2. um destrutor vazio;
