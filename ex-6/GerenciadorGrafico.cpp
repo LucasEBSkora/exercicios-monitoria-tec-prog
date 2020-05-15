@@ -6,7 +6,8 @@ namespace exercicio {
 
   GerenciadorGrafico::GerenciadorGrafico() :
     janela{new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 3")},
-    camera{sf::Vector2f(400, 300), sf::Vector2f(400,300)}
+    camera{sf::Vector2f(400, 300), sf::Vector2f(400,300)},
+    text{nullptr}
   {
     janela->setView(camera);
   }
@@ -43,19 +44,44 @@ namespace exercicio {
       exit(121);
     }
 
-    sf::Texture* text = texturas[caminho];
-
-    sf::Sprite sprite;
+    text = texturas[caminho];
 
     //Seria possivel (aconselhável) verificar se a textura está completamente fora
     //da câmera e não desenhá-la se for o caso
 
-    sprite.setTexture(*text);
+    sprite.setTexture(*text, true);
     sprite.setOrigin(text->getSize().x*0.5, text->getSize().x*0.5);
     sprite.setPosition(posicao.x, posicao.y);
 
     janela->draw(sprite);
 
+
+  }
+
+  void GerenciadorGrafico::desenhar(const std::string& caminho, const Vetor2F posicao, const Vetor2U numeroFrames, const Vetor2U frame) {
+
+    if (texturas.count(caminho) == 0) {
+      std::cout << "Atencao! Imagem em " << caminho << " nao carregada!" << std::endl;
+      exit(121);
+    }
+
+    text = texturas[caminho];
+
+    //Seria possivel (aconselhável) verificar se a textura está completamente fora
+    //da câmera e não desenhá-la se for o caso
+    
+    sprite.setTexture(*text);
+    
+    
+    sf::Vector2i tamanho = {(int)text->getSize().x / (int)numeroFrames.y, (int)text->getSize().y / (int)numeroFrames.x };
+    sf::Vector2i posicaoFrame = { (int)tamanho.x * (int)frame.y, (int)tamanho.y * (int)frame.x};
+
+    sprite.setTextureRect({ posicaoFrame, tamanho});
+
+    sprite.setOrigin({tamanho.x*0.5f, tamanho.y*0.5f});
+    sprite.setPosition(posicao.x, posicao.y);
+
+    janela->draw(sprite);
 
   }
 

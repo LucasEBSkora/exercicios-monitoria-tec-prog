@@ -4,7 +4,7 @@
 
 namespace exercicio {
 
-  Heroi::Heroi(Vetor2F pos): Colidivel(pos, Vetor2F(), Ids::heroi, "../assets/TheUndying.png") {
+  Heroi::Heroi(Vetor2F pos): Colidivel(pos, Vetor2F(), Ids::heroi, "../assets/walk2.png") {
 
   }
 
@@ -30,7 +30,7 @@ namespace exercicio {
 
   void Heroi::desenhar(GerenciadorGrafico &g) {
         
-    g.desenhar(caminho, posicao);
+    g.desenhar(caminho, posicao, {1, 9}, {0, 5});
     g.centralizar(posicao);
   }
 

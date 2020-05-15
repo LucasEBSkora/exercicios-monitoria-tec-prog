@@ -40,6 +40,7 @@ namespace exercicio {
   template <typename T>
   std::ostream& operator <<(std::ostream& out, const Vetor2D<T>& v);
 
+  
 }
   #include "Vetor2DImplementacao.hpp"
 
