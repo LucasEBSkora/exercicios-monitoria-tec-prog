@@ -21,10 +21,10 @@ namespace exercicio {
 
   unsigned short LinhaTileMap::operator[](unsigned int i) const {
 
-    if (i >= comprimento) {
-      std::cout << "Erro! acesso indevido à memória do mapa de tiles.\n" << std::endl;
-      exit(526);
-    } 
+    // if (i >= comprimento) {
+    //   std::cout << "Erro! acesso indevido à memória do mapa de tiles.\n" << std::endl;
+    //   exit(526);
+    // } 
     return linha[i];
   }
 
@@ -65,10 +65,10 @@ namespace exercicio {
   }
 
   const LinhaTileMap TileMap::operator[](unsigned int i) const {
-    if (i > dimensoesMapa.y) {
-      std::cout << "Erro! acesso indevido à memória do mapa de tiles.\n" << std::endl;
-      exit(526);
-    }
+    // if (i > dimensoesMapa.y) {
+    //   std::cout << "Erro! acesso indevido à memória do mapa de tiles.\n" << std::endl;
+    //   exit(526);
+    // }
 
     return {mapa[i], dimensoesMapa.x};
   }
@@ -111,10 +111,9 @@ namespace exercicio {
 
     }
 
-    std::cout << dimensoesMapa << std::endl; 
+    // std::cout << dimensoesMapa << std::endl; 
 
-    imprimirMapa();
-
+    // imprimirMapa();
 
   }
 

@@ -60,15 +60,11 @@ namespace exercicio {
   }
 
   bool GerenciadorGrafico::carregarTextura(const std::string& caminho) {
-      std::cout << texturas.count(caminho) << std::endl;
-    
     if (texturas.count(caminho) == 1) return true;
     else {
       
       
       sf::Texture* text = new sf::Texture();
-
-      std::cout << caminho << std::endl;
       if (!text->loadFromFile(caminho)) {
         std::cout << "Atencao! imagem em " << caminho << "nao encontrada!" << std::endl;
         exit(120);

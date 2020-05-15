@@ -31,29 +31,32 @@ namespace exercicio {
 
   Principal::Principal() : 
     terminar{false}, 
-    IDjanelaFechada{gerenciadorEventos.adicionarOuvinteOutro( [this] (const sf::Event& e) {janelaFechada(e);} )} {
+    gerenciadorTiles{
+      {
+        new Tile(Ids::errado, "../assets/TileVazio.png", {32.0f, 32.0f}),
+        new Tile(Ids::parede, "../assets/TempleWallTile.png", {32.0f, 32.0f}),
+        new Tile(Ids::espinho, "../assets/TempleSpikeObstacle.png", {32.0f, 32.0f}),
+        new Tile(Ids::fimDaFase, "../assets/LevelEndTile.png", {32.0f, 32.0f}),
+        new Tile(Ids::parede, "../assets/PlayerSpawnPoint.png", {32.0f, 32.0f}),
+        new Tile(Ids::buracoInfinito, "../assets/HoleObstacle.png", {32.0f, 32.0f}),
+        new Tile(Ids::parede, "../assets/CavernWallTile.png", {32.0f, 32.0f}),
+        new Tile(Ids::espinho, "../assets/CavernSpikeObstacle.png", {32.0f, 32.0f}),
+        new Tile(Ids::armadilha, "../assets/BulletObstacle.png", {32.0f, 32.0f}),
+      },
+       {32.0f, 32.0f}, "../assets/tilemap.json"
+    },
+    IDjanelaFechada{gerenciadorEventos.adicionarOuvinteOutro( [this] (const sf::Event& e) {janelaFechada(e);} )}
+     {
     
-    listaAmigos.inserir( new Heroi(Vetor2F(0.0f, 0.0f)));
-    listaAmigos.inserir( new Vilao(Vetor2F(-40.0f, -50.0f), Vetor2F(0, 10)));
-    listaAmigos.inserir( new Vilao(Vetor2F(-40.0f, 50.0f), Vetor2F(0, -10)));
-    listaAmigos.inserir( new Vilao(Vetor2F(40.0f, 50.0f), Vetor2F(0, -10)));
-    listaAmigos.inserir( new Vilao(Vetor2F(40.0f, -50.0f), Vetor2F(0, 10)));
-
-
-    gerenciadorTiles = GerenciadorTiles({
-      new Tile(Ids::errado, "../assets/TileVazio.png", {32.0f, 32.0f}),
-      new Tile(Ids::parede, "../assets/TempleWallTile.png", {32.0f, 32.0f}),
-      new Tile(Ids::espinho, "../assets/TempleSpikeObstacle.png", {32.0f, 32.0f}),
-      new Tile(Ids::fimDaFase, "../assets/LevelEndTile.png", {32.0f, 32.0f}),
-      new Tile(Ids::parede, "../assets/PlayerSpawnPoint.png", {32.0f, 32.0f}),
-      new Tile(Ids::buracoInfinito, "../assets/HoleObstacle.png", {32.0f, 32.0f}),
-      new Tile(Ids::parede, "../assets/CavernWallTile.png", {32.0f, 32.0f}),
-      new Tile(Ids::espinho, "../assets/CavernSpikeObstacle.png", {32.0f, 32.0f}),
-      new Tile(Ids::armadilha, "../assets/BulletObstacle.png", {32.0f, 32.0f}),
-    }, {32.0f, 32.0f}, "../assets/tilemap.json");
-
+    listaAmigos.inserir( new Heroi(Vetor2F(20.0f, 20.0f)));
+    listaAmigos.inserir( new Vilao(Vetor2F(40.0f, 50.0f), Vetor2F(0, 10)));
+    listaAmigos.inserir( new Vilao(Vetor2F(40.0f, 100.0f), Vetor2F(0, -10)));
+    listaAmigos.inserir( new Vilao(Vetor2F(80.0f, 50.0f), Vetor2F(0, -10)));
+    listaAmigos.inserir( new Vilao(Vetor2F(80.0f, 100.0f), Vetor2F(0, 10)));
 
     listaAmigos.inicializarDesenhaveis(gerenciadorGrafico, gerenciadorEventos, gerenciadorColisoes);
+
+    gerenciadorTiles.inicializar(gerenciadorGrafico, gerenciadorEventos);
 
     gerenciadorEventos.setJanela(gerenciadorGrafico.getJanela());
     gerenciadorColisoes.setGerenciadorTiles(&gerenciadorTiles);

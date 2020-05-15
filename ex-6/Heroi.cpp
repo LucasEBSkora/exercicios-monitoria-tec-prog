@@ -83,7 +83,35 @@ namespace exercicio {
   }
 
   void Heroi::colidir(Ids::Ids idOutro, Vetor2F posicaoOutro, Vetor2F dimensoesOutro) {
-    std::cout << "ai " << std::endl;
+    std::string imprimir;
+
+    switch (idOutro) {
+      case Ids::vilao:
+        imprimir = "ai ui ui";
+        break;
+      case Ids::armadilha:
+        imprimir = "fui ludibriado";
+        break;
+      case Ids::buracoInfinito:
+        imprimir = "cai";
+        break;
+      case Ids::errado:
+        imprimir = "mano o que ta acontecendo";
+        break;
+      case Ids::espinho:
+        imprimir = "pontudo";
+        break;
+      case Ids::fimDaFase:
+        imprimir = "estou livre";
+        break;
+      case Ids::parede:
+        imprimir = "bonk";
+        break;
+      default:
+        imprimir = "eita";
+    }
+
+    std::cout << imprimir << std::endl;
   }
 
 }
