@@ -208,3 +208,43 @@ e dos seguintes métodos:
   4. Uma sobrecarga do inicializar de Desenhavel, que inicializa os Tiles no vector;
   5. Uma sobrecarga do desenhar() de Desenhavel
   6. Um método checarColisoes() que recebe a posição, tamanho e Id de alguma objeto e retorna um std::vector<IdPosicaoTamanho> que descreve todos os tiles com o qual aqule Colidivel colidiu (se isso acontecer).
+
+## Ex 6.5 - Animações 
+
+Crie na classe GerenciadorGrafico uma sobrecarga de método da função desenhar que, além dos dois primeiros parâmetros,
+toma também dois Vetor2U, o primeiro representando o número de frames em uma textura, e o segundo qual frame desejamos desenhar.
+
+## Ex 7 - Padrões de projeto: Estado e pilha de Estados
+
+Um padrão de projeto é, bem, um padrão usado em projetos. Basicamente, a ideia é que muitos problemas que surgem em programas são parecidos com outros, e, para resolvê-los, foram criados padrões que, com algumas adaptações, resolvem esses problemas. 
+Um deles, muito útil para jogos, é o padrão de projeto "Estado". A idéia dele é permitir que um objeto tenha comportamentos diferentes de acordo com seu estado interno.
+Por exemplo, você poderia usar um bloco switch-case para determinar qual fase ou menu do seu jogo precisa ser carregada, mas isso é altamente acoplado e difícil de manter. Com o padrão de projeto de Estado, você precisa apenas mudar o estado interno do objeto para o comportamento mudar.
+
+São necessários (no mínimo) 3 classes para implementar esse padrão de projeto: 
+Um contexto, que é a classe do objeto que precisa variar seu comportamento (no nosso caso, o próprio jogo)
+Uma classe abstrata Estado, que declara os métodos que precisam ser implementados em cada estado.
+Uma ou várias implementações de Estado, que representam cada estado interno possível do contexto.
+
+Um exemplo menos abstrato, no contexto do jogo, seria ter como Contexto a classe Principal, e como implementações de Estado coisas como MenuPrincipal, MenuPausa, FaseFloresta, FaseCaverna, etc.
+
+Além de usar esse padrão de projetos, colocaremos os estados atuais do jogo em uma pilha. Isso quer dizer que, quando quisermos entrar em um menu de pausa, só temos que adicionar o estado do Menu na pilha, e quando quisermos sair do menu, é só tirar o estado da pilha.
+
+Portanto, criaremos 4 classes:
+
+## Classe Estado
+  Essa classe abstrata terá um método virtual puro "executar" que retorna um membro de um Enum codigoRetorno que identifica se a pilha de estados deve mudar (por exemplo, tirar aquele estado da pilha, colocar outro por cima, tirar esse estado e o de baixo, etc.). Em princípio, terá como atributo apenas uma referẽncia para o GerenciadorGrafico.
+
+## Classe GerenciadorEstado.
+  Essa classe inclui os seguintes atributos:
+  1. Uma std::stack privada de ponteiros para objetos de Estados
+
+  E os seguintes métodos:
+  1. construtor e destrutor
+  2. método protegido pushEstado(), que recebe um ponteiro para estado e o coloca na pilha
+  3. método protegido popEstado(), que tira o estado do topo da pilha
+  4. método protegido esvaziaPilha(), que tem como parâmetro opcional um ponteiro para Estado. Esse método esvazia a pilha, e, se um ponteiro não-nulo for passado, o adiciona à pilha.
+  5. método público executar(), que retorna um valor booleano (que representa se o programa deve terminar de executar) e chama o método executar do Estado no topo da pilha
+  6. método público virtual puro inicializar(), que carrega o estado inicial da pilha
+  7. método protegido virtual puro processarCodigo(), que recebe um enum codigoRetorno e manipula a pilha de acordo com o código (por exemplo, com um código "trocarFase", tiraria a fase atual da pilha e empurraria a próxima).
+
+Além disso, criaremos implementações dessas duas classes, simplesmente adequando as funcionalidades já existentes do programa para esse novo modelo.
