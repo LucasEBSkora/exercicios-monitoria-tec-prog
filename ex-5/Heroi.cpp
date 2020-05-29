@@ -4,7 +4,7 @@
 
 namespace exercicio {
 
-  Heroi::Heroi(Vetor2F pos): Colidivel(pos, Vetor2F(), IdsDesenhaveis::heroi, "../assets/TheUndying.png") {
+  Heroi::Heroi(Vetor2F pos /*= {0.0f, 0.0f}*/): Colidivel(pos, Vetor2F(), IdsDesenhaveis::heroi, "../assets/TheUndying.png") {
 
   }
 

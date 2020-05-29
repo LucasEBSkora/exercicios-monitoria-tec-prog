@@ -61,7 +61,7 @@ namespace exercicio {
 
       */
 
-      Desenhavel(Vetor2F pos, Vetor2F vel, const char* caminhoTextura = nullptr);
+      Desenhavel(Vetor2F pos = {0.0f, 0.0f}, Vetor2F vel = {0.0f, 0.0f}, const char* caminhoTextura = nullptr);
       virtual ~Desenhavel();
       virtual void inicializar(GerenciadorGrafico &gf, GerenciadorEventos& ge);
       virtual void atualizar(float t);

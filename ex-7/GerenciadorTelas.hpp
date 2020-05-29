@@ -20,11 +20,9 @@ namespace exercicio {
       Heroi* jogador1;
     
     public:
-
-      GerenciadorTelas(GerenciadorGrafico& gg, Heroi* jogador1);
-
+      GerenciadorTelas(GerenciadorGrafico& gg, Heroi* jogador1 = nullptr);
+      //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
     protected:
-    
       bool processarCodigo(int codigoRetorno) override;
 
   };

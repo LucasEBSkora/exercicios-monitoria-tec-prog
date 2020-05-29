@@ -15,7 +15,7 @@ namespace exercicio {
       unsigned int chaveOuvinte;
     public:
       
-      Heroi(Vetor2F pos);
+      Heroi(Vetor2F pos = {0.0f, 0.0f});
       ~Heroi();
       void inicializar(GerenciadorGrafico &gf, GerenciadorEventos& ge, GerenciadorColisoes& gc);
       void atualizar(float t);

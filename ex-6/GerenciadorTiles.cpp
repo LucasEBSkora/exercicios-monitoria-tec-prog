@@ -1,7 +1,7 @@
 #include "GerenciadorTiles.hpp"
 
 namespace exercicio {
-  GerenciadorTiles::GerenciadorTiles(std::vector<Tile*> Tiles, Vetor2F dimensoes, const char* caminhoArquivo) 
+  GerenciadorTiles::GerenciadorTiles(std::vector<Tile*> Tiles /*= {}*/, Vetor2F dimensoes /*= {0.0f, 0.0f}*/, const char* caminhoArquivo /*= nullptr*/) 
   : tiles {Tiles},
     dimensoesTiles {dimensoes},
     caminho {caminhoArquivo},

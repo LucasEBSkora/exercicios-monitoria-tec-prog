@@ -4,7 +4,8 @@
 
 namespace exercicio {
 
-  Tile::Tile(const Ids::Ids ID, const char* caminhoArquivo, Vetor2F Tamanho) : id{ID}, caminho{caminhoArquivo}, tamanho{Tamanho} {
+  Tile::Tile(const Ids::Ids ID /*= Ids::semID*/, const char* caminhoArquivo /*= nullptr*/, Vetor2F Tamanho /*= {32.0f, 32.0f}*/) : 
+    id{ID}, caminho{caminhoArquivo}, tamanho{Tamanho} {
     std::cout << caminho << std::endl;
   }
 

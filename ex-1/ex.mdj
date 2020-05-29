@@ -1065,6 +1065,20 @@
 							"headQualifiersCompartment": {
 								"$ref": "AAAAAAFw+RKKrKehaKI="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFyYgLIT9qnDDg=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"fillColor": "#07bc9e",
+							"font": "Arial;13;0",
+							"left": 200,
+							"top": 640,
+							"width": 137,
+							"height": 90,
+							"text": "Diagrama de classes referente ao exercício 1. Última modificação no dia 29/05/20 - Revisão"
 						}
 					]
 				},

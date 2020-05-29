@@ -4,7 +4,7 @@
 
 namespace exercicio {
 
-  Desenhavel::Desenhavel(Vetor2F pos, Vetor2F vel, IdsDesenhaveis::IdsDesenhaveis ID, const char* caminhoTextura) : 
+  Desenhavel::Desenhavel(Vetor2F pos /* = {0.0f, 0.0f}*/, Vetor2F vel/* = {0.0f, 0.0f}*/, IdsDesenhaveis::IdsDesenhaveis ID  /*= IdsDesenhaveis::semID*/, const char* caminhoTextura /* = nullptr*/) : 
     posicao{pos}, v{vel}, caminho{caminhoTextura}, id{ID} {
 
   }

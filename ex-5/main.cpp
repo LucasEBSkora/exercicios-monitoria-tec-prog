@@ -19,23 +19,11 @@ int main() {
 }
 */
 
-#include <iostream>
-
-#include <fstream>
-#include "../json/json.hpp"
 
 //se executar() retornar um int
 int main() {
 
-  nlohmann::json arquivo;
+  exercicio::Principal principal;
 
-  std::ifstream arq("../assets/derp.json");
-
-  arq >> arquivo;
-
-  std::cout << arquivo << std::endl;
-
-  // exercicio::Principal principal;
-
-  // return principal.executar();
+  return principal.executar();
 }

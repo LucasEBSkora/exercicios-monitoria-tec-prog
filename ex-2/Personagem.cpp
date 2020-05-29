@@ -5,7 +5,9 @@
 
 namespace exercicio {
 
-  Personagem::Personagem(sf::Vector2f pos, sf::Vector2f vel, const char* caminhoTextura) : posicao{pos}, v{vel}, text{nullptr} {
+  Personagem::Personagem(sf::Vector2f pos /* = sf::Vector2f(0.0f, 0.0f)*/, sf::Vector2f vel /* = sf::Vector2f(0.0f, 0.0f)*/, const char* caminhoTextura /* = nullptr*/) : 
+    posicao{pos}, v{vel}, text{nullptr} {
+    //a lista de inicialização acima (depois do :) é a maneira correta de inicializar variáveis em um construtor.
     //posicao = pos;
     //v = vel;
     //text = nullptr;

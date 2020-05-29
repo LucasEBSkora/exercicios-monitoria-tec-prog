@@ -4,7 +4,7 @@ namespace exercicio {
 
      
   template <typename T>
-  Vetor2D<T>::Vetor2D(T X, T Y) : x{X}, y{Y} {
+  Vetor2D<T>::Vetor2D(T X /*= 0.0*/, T Y /*= 0.0*/) : x{X}, y{Y} {
 
   }
 
@@ -49,6 +49,30 @@ namespace exercicio {
   void Vetor2D<T>::operator +=(Vetor2D<T> v) {
     x += v.x;
     y += v.y;
+  }
+
+  template <typename T>
+  void Vetor2D<T>::operator -=(Vetor2D<T> v) {
+    x -= v.x;
+    y -= v.y;
+  }
+
+  template <typename T>
+  void Vetor2D<T>::operator *=(int i) {
+    x *= i;
+    y *= i;
+  }
+
+  template <typename T>
+  void Vetor2D<T>::operator *=(float f) {
+    x *= f;
+    y *= f;
+  }
+
+  template <typename T>
+  void Vetor2D<T>::operator *=(double d) {
+    x *= d;
+    y *= d;
   }
 
   template <typename T>

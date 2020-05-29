@@ -4,7 +4,8 @@
 
 namespace exercicio {
   
-  Vilao::Vilao(Vetor2F pos, Vetor2F vel) : Colidivel(pos, vel, IdsDesenhaveis::vilao, "../assets/bloodboi.png") {
+  Vilao::Vilao(Vetor2F pos /*= {0.0f, 0.0f}*/, Vetor2F vel /*= {0.0f, 0.0f}*/) : 
+    Colidivel(pos, vel, IdsDesenhaveis::vilao, "../assets/bloodboi.png") {
 
   }
   

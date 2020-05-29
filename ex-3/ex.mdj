@@ -641,6 +641,24 @@
 									"subViews": [
 										{
 											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFyYfO5knbcM3A=",
+											"_parent": {
+												"$ref": "AAAAAAFw+Q0BUKPRr6k="
+											},
+											"model": {
+												"$ref": "AAAAAAFyYfO5L3bZ/dc="
+											},
+											"fillColor": "#04cead",
+											"font": "Arial;13;0",
+											"left": 581,
+											"top": 275,
+											"width": 235.548828125,
+											"height": 13,
+											"text": "-terminar: bool",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
 											"_id": "AAAAAAFw+Q6u5qRjjgI=",
 											"_parent": {
 												"$ref": "AAAAAAFw+Q0BUKPRr6k="
@@ -651,7 +669,7 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 581,
-											"top": 275,
+											"top": 290,
 											"width": 235.548828125,
 											"height": 13,
 											"text": "-gerenciadorGrafico: GerenciadorGrafico",
@@ -669,7 +687,7 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 581,
-											"top": 290,
+											"top": 305,
 											"width": 235.548828125,
 											"height": 13,
 											"text": "-listaAmigos: ListaPersonagens",
@@ -687,7 +705,7 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 581,
-											"top": 305,
+											"top": 320,
 											"width": 235.548828125,
 											"height": 13,
 											"text": "-relogio: Clock",
@@ -699,7 +717,7 @@
 									"left": 576,
 									"top": 270,
 									"width": 245.548828125,
-									"height": 53
+									"height": 68
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -723,7 +741,7 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 581,
-											"top": 328,
+											"top": 343,
 											"width": 235.548828125,
 											"height": 13,
 											"text": "«create»+Principal()",
@@ -741,7 +759,7 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 581,
-											"top": 343,
+											"top": 358,
 											"width": 235.548828125,
 											"height": 13,
 											"text": "«Destroy»+~Principal()",
@@ -759,7 +777,7 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 581,
-											"top": 358,
+											"top": 373,
 											"width": 235.548828125,
 											"height": 13,
 											"text": "+executar(): void",
@@ -769,7 +787,7 @@
 									"fillColor": "#04cead",
 									"font": "Arial;13;0",
 									"left": 576,
-									"top": 323,
+									"top": 338,
 									"width": 245.548828125,
 									"height": 53
 								},
@@ -4363,10 +4381,10 @@
 							},
 							"fillColor": "#07bc9e",
 							"font": "Arial;13;0",
-							"left": 1480,
-							"top": 960,
+							"left": 1472,
+							"top": 968,
 							"width": 249,
-							"height": 89,
+							"height": 57,
 							"text": "  typedef Vetor2D<float> Vetor2F;\n  typedef Vetor2D<unsigned> Vetor2U;"
 						},
 						{
@@ -4382,7 +4400,7 @@
 							"tail": {
 								"$ref": "AAAAAAFxYFm++7Yt9JA="
 							},
-							"points": "1480:1010;1439:1010"
+							"points": "1472:1010;1439:1010"
 						},
 						{
 							"_type": "UMLClassView",
@@ -4687,6 +4705,24 @@
 											"height": 13,
 											"text": "+centralizar(centro: const vetor2F): void",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFyYbsOJsZP9RY=",
+											"_parent": {
+												"$ref": "AAAAAAFxYFSMB6e8wtg="
+											},
+											"model": {
+												"$ref": "AAAAAAFyYbsN8sY0bmM="
+											},
+											"fillColor": "#04cead",
+											"font": "Arial;13;0",
+											"left": 77,
+											"top": 292,
+											"width": 350,
+											"height": 13,
+											"text": "+getJanela(): RenderWindow*",
+											"horizontalAlignment": 0
 										}
 									],
 									"fillColor": "#04cead",
@@ -4694,7 +4730,7 @@
 									"left": 72,
 									"top": 182,
 									"width": 360,
-									"height": 113
+									"height": 128
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -5404,6 +5440,20 @@
 							"propertyLabel": {
 								"$ref": "AAAAAAFxYGDqd9+VOa0="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFyYgSY3nVPoN8=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"fillColor": "#07bc9e",
+							"font": "Arial;13;0",
+							"left": 96,
+							"top": 1160,
+							"width": 161,
+							"height": 65,
+							"text": "Diagrama de classes referente ao exercício 3. Última modificação no dia 29/05/20 - Revisão"
 						}
 					]
 				},
@@ -5836,6 +5886,16 @@
 							"name": "Principal",
 							"stereotype": "main",
 							"attributes": [
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFyYfO5L3bZ/dc=",
+									"_parent": {
+										"$ref": "AAAAAAFw+Q0BTKPJSx8="
+									},
+									"name": "terminar",
+									"visibility": "private",
+									"type": "bool"
+								},
 								{
 									"_type": "UMLAttribute",
 									"_id": "AAAAAAFw+Q6ul6RgXZE=",
@@ -7239,6 +7299,25 @@
 												"$ref": "AAAAAAFxYFf0aLHECbw="
 											},
 											"type": "void",
+											"direction": "return"
+										}
+									]
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFyYbsN8sY0bmM=",
+									"_parent": {
+										"$ref": "AAAAAAFxYFSMAaezQwE="
+									},
+									"name": "getJanela",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFyYbs6OMbRTqc=",
+											"_parent": {
+												"$ref": "AAAAAAFyYbsN8sY0bmM="
+											},
+											"type": "RenderWindow*",
 											"direction": "return"
 										}
 									]

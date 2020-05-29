@@ -34,7 +34,9 @@ namespace exercicio {
       unsigned int IdOuvinteFecharTela;
 
     public: 
-      FaseExemplo(GerenciadorGrafico& gg, Heroi* jogador1);
+      FaseExemplo(GerenciadorGrafico& gg, Heroi* jogador1 /*= nullptr*/);
+      //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
+
       ~FaseExemplo();
       int executar() override;
     

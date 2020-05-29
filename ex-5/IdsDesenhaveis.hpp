@@ -8,7 +8,8 @@ namespace exercicio {
     namespace IdsDesenhaveis {
       enum IdsDesenhaveis {
         heroi,
-        vilao
+        vilao,
+        semID
       };
     }
 

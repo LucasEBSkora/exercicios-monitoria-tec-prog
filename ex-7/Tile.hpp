@@ -15,7 +15,7 @@ namespace exercicio {
       Vetor2F tamanho;
 
     public:
-      Tile(const Ids::Ids ID, const char* caminhoArquivo, Vetor2F Tamanho);
+      Tile(const Ids::Ids ID = Ids::semID, const char* caminhoArquivo = nullptr, Vetor2F Tamanho = {32.0f, 32.0f});
       virtual ~Tile();
       virtual void inicializar(GerenciadorGrafico& gg, GerenciadorEventos& ge);
       void desenhar(GerenciadorGrafico& gg, const Vetor2F posicao) const;

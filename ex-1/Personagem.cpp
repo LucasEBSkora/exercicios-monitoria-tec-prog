@@ -5,7 +5,8 @@
 
 namespace exercicio {
 
-  Personagem::Personagem(float xInicial, float yInicial, const char* caminhoTextura) : x{xInicial}, y{yInicial}, text{nullptr} {
+  Personagem::Personagem(float xInicial /*= 0.0f*/, float yInicial /*= 0.0f*/, const char* caminhoTextura /*= nullptr*/) : x{xInicial}, y{yInicial}, text{nullptr} {
+    //a lista de inicialização acima (depois do :) é a maneira correta de inicializar variáveis em um construtor.
     //x = xInicial;
     //y = yInicial;
     //text = nullptr;

@@ -59,7 +59,7 @@ namespace exercicio {
 
       */
 
-      Personagem(Vetor2F pos, Vetor2F vel, const char* caminhoTextura = nullptr);
+      Personagem(Vetor2F pos = {0.0f, 0.0f}, Vetor2F vel = {0.0f, 0.0f}, const char* caminhoTextura = nullptr);
       ~Personagem();
       void inicializar(GerenciadorGrafico &g);
       void atualizar(float t);

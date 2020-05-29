@@ -33,7 +33,7 @@ namespace exercicio {
     terminar{false}, 
     gerenciadorTiles{
       {
-        new Tile(Ids::errado, "../assets/TileVazio.png", {32.0f, 32.0f}),
+        new Tile(Ids::semID, "../assets/TileVazio.png", {32.0f, 32.0f}),
         new Tile(Ids::parede, "../assets/TempleWallTile.png", {32.0f, 32.0f}),
         new Tile(Ids::espinho, "../assets/TempleSpikeObstacle.png", {32.0f, 32.0f}),
         new Tile(Ids::fimDaFase, "../assets/LevelEndTile.png", {32.0f, 32.0f}),

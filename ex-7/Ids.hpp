@@ -14,7 +14,7 @@ namespace exercicio {
         armadilha,
         fimDaFase,
         buracoInfinito,
-        errado
+        semID
       };
     }
 

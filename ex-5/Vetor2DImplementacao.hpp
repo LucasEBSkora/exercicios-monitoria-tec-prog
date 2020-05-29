@@ -4,7 +4,7 @@ namespace exercicio {
 
      
   template <typename T>
-  Vetor2D<T>::Vetor2D(T X, T Y) : x{X}, y{Y} {
+  Vetor2D<T>::Vetor2D(T X /*= 0.0*/, T Y /*= 0.0*/) : x{X}, y{Y} {
 
   }
 
@@ -103,7 +103,5 @@ namespace exercicio {
     out << '(' << v.x << " , " << v.y << ')';
     return out;
   }
-
-
 
 }

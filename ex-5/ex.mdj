@@ -812,6 +812,24 @@
 											"height": 13,
 											"text": "-gerenciadorColisoes: GerenciadorColisoes",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFyYfXFzcjZLPI=",
+											"_parent": {
+												"$ref": "AAAAAAFw+Q0BUKPRr6k="
+											},
+											"model": {
+												"$ref": "AAAAAAFyYfXFosjWJ9Q="
+											},
+											"fillColor": "#04cead",
+											"font": "Arial;13;0",
+											"left": 629,
+											"top": 686,
+											"width": 254.71875,
+											"height": 13,
+											"text": "-terminar: bool",
+											"horizontalAlignment": 0
 										}
 									],
 									"fillColor": "#04cead",
@@ -819,7 +837,7 @@
 									"left": 624,
 									"top": 606,
 									"width": 264.71875,
-									"height": 83
+									"height": 98
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -843,7 +861,7 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 629,
-											"top": 694,
+											"top": 709,
 											"width": 254.71875,
 											"height": 13,
 											"text": "«create»+Principal()",
@@ -861,7 +879,7 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 629,
-											"top": 709,
+											"top": 724,
 											"width": 254.71875,
 											"height": 13,
 											"text": "«Destroy»+~Principal()",
@@ -879,19 +897,37 @@
 											"fillColor": "#04cead",
 											"font": "Arial;13;0",
 											"left": 629,
-											"top": 724,
+											"top": 739,
 											"width": 254.71875,
 											"height": 13,
 											"text": "+executar(): void",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFyYgCUfFuqyjA=",
+											"_parent": {
+												"$ref": "AAAAAAFw+Q0BUaPSb8U="
+											},
+											"model": {
+												"$ref": "AAAAAAFyYgCUUlunfRE="
+											},
+											"fillColor": "#04cead",
+											"font": "Arial;13;0",
+											"left": 629,
+											"top": 754,
+											"width": 254.71875,
+											"height": 13,
+											"text": "+janelaFechada(e: Event): void",
 											"horizontalAlignment": 0
 										}
 									],
 									"fillColor": "#04cead",
 									"font": "Arial;13;0",
 									"left": 624,
-									"top": 689,
+									"top": 704,
 									"width": 264.71875,
-									"height": 53
+									"height": 68
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -937,7 +973,7 @@
 							"left": 624,
 							"top": 568,
 							"width": 264.71875,
-							"height": 189,
+							"height": 204,
 							"nameCompartment": {
 								"$ref": "AAAAAAFw+Q0BT6PMy4Y="
 							},
@@ -1830,7 +1866,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 740,
-									"top": 775,
+									"top": 790,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -1850,7 +1886,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 726,
-									"top": 778,
+									"top": 793,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -1869,7 +1905,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 764,
-									"top": 771,
+									"top": 786,
 									"width": 7.22998046875,
 									"height": 13,
 									"alpha": 0.5235987755982988,
@@ -1925,7 +1961,7 @@
 							"tail": {
 								"$ref": "AAAAAAFxZTodFBDGbUc="
 							},
-							"points": "1040:1296;1040:816;755:816;755:756",
+							"points": "1040:1296;1040:816;755:816;755:771",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFxHTaH9eAaa9k="
@@ -8091,7 +8127,7 @@
 											"top": 719,
 											"width": 453.0830078125,
 											"height": 13,
-											"text": "«destroy»~GerenciadorEventos()",
+											"text": "«destroy»+GerenciadorEventos()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -9107,6 +9143,20 @@
 							"templateParameterCompartment": {
 								"$ref": "AAAAAAFxrW0ae4m7/u4="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAFyYfYr4NAVeRI=",
+							"_parent": {
+								"$ref": "AAAAAAFF+qBtyKM79qY="
+							},
+							"fillColor": "#07bc9e",
+							"font": "Arial;13;0",
+							"left": 8,
+							"top": 1768,
+							"width": 169,
+							"height": 65,
+							"text": "Diagrama de classes referente ao exercício 5 - Alterado por último no dia 29/05/19 - revisões"
 						}
 					]
 				},
@@ -9715,6 +9765,16 @@
 									"name": "gerenciadorColisoes",
 									"visibility": "private",
 									"type": "GerenciadorColisoes"
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFyYfXFosjWJ9Q=",
+									"_parent": {
+										"$ref": "AAAAAAFw+Q0BTKPJSx8="
+									},
+									"name": "terminar",
+									"visibility": "private",
+									"type": "bool"
 								}
 							],
 							"operations": [
@@ -9749,6 +9809,34 @@
 											"_id": "AAAAAAFw+RYBCKp/6IU=",
 											"_parent": {
 												"$ref": "AAAAAAFw+RSVuanRtQs="
+											},
+											"type": "void",
+											"direction": "return"
+										}
+									]
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFyYgCUUlunfRE=",
+									"_parent": {
+										"$ref": "AAAAAAFw+Q0BTKPJSx8="
+									},
+									"name": "janelaFechada",
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFyYgCaqVyAIN8=",
+											"_parent": {
+												"$ref": "AAAAAAFyYgCUUlunfRE="
+											},
+											"name": "e",
+											"type": "Event"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFyYgCaqlyB1EY=",
+											"_parent": {
+												"$ref": "AAAAAAFyYgCUUlunfRE="
 											},
 											"type": "void",
 											"direction": "return"
@@ -12101,8 +12189,7 @@
 								"$ref": "AAAAAAFxrXCth6tfkyw="
 							},
 							"name": "GerenciadorEventos",
-							"stereotype": "destroy",
-							"visibility": "package"
+							"stereotype": "destroy"
 						},
 						{
 							"_type": "UMLOperation",
@@ -12137,7 +12224,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFxrXdDBulv68I="
 									},
-									"name": "RenderWindow* j"
+									"name": "RenderWindow* j",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",

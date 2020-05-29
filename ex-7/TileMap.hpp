@@ -14,7 +14,7 @@ namespace exercicio {
           unsigned int comprimento;
         
         public:
-          LinhaTileMap(unsigned short* p, unsigned int c);
+          LinhaTileMap(unsigned short* p = nullptr, unsigned int c = 0);
           ~LinhaTileMap();
           unsigned short operator[](unsigned int i) const;
         

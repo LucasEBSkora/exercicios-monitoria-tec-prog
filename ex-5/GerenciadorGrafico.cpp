@@ -5,7 +5,7 @@
 namespace exercicio {
 
   GerenciadorGrafico::GerenciadorGrafico() :
-    janela{new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 3")},
+    janela{new sf::RenderWindow(sf::VideoMode(800, 600), "exercicio 5")},
     camera{sf::Vector2f(400, 300), sf::Vector2f(400,300)}
   {
     janela->setView(camera);

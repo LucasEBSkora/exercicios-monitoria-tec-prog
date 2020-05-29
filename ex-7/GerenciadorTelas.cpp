@@ -4,7 +4,8 @@
 
 namespace exercicio {
 
-  GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Heroi* jogador1) : gerenciadorGrafico{gg}, jogador1{jogador1} {
+  GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Heroi* jogador1 /*= nullptr*/) : 
+    gerenciadorGrafico{gg}, jogador1{jogador1} {
     pushEstado(new FaseExemplo(gg, jogador1));
   }
 

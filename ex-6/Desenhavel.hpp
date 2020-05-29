@@ -64,7 +64,7 @@ namespace exercicio {
 
       */
 
-      Desenhavel(Ids::Ids ID, Vetor2F pos = {0.0f, 0.0f}, Vetor2F vel = {0.0f, 0.0f}, const char* caminhoTextura = nullptr);
+      Desenhavel(Ids::Ids ID = Ids::semID, Vetor2F pos = {0.0f, 0.0f}, Vetor2F vel = {0.0f, 0.0f}, const char* caminhoTextura = nullptr);
       virtual ~Desenhavel();
       virtual void inicializar(GerenciadorGrafico &gf, GerenciadorEventos& ge, GerenciadorColisoes& gc);
       virtual void atualizar(float t);
