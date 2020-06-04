@@ -248,3 +248,63 @@ Portanto, criaremos 4 classes:
   7. método protegido virtual puro processarCodigo(), que recebe um enum codigoRetorno e manipula a pilha de acordo com o código (por exemplo, com um código "trocarFase", tiraria a fase atual da pilha e empurraria a próxima).
 
 Além disso, criaremos implementações dessas duas classes, simplesmente adequando as funcionalidades já existentes do programa para esse novo modelo.
+
+## Ex 8 -  Menus e Elementos de Menu - 1 : Botões
+  Um dos vários requisitos do jogo é a implementação de, no mínimo, um menu principal e um de pausa. iremos criar menus com botões e entrada de texto, cujos botões podem ser selecionados com o  mouse, e entrada do texto suportando letras, números e espaços. Para isso, serão necessárias modificações no gerenciador gráfico. Antes disso, criaremos uma pequena classe ajudante:
+
+  Crie uma classe Cor, com:
+  Os seguintes atributos:
+  1. 4 unsigned char (vulgo um valor entre 0 e 255) chamados r, g, b, a PUBLICOS 
+  e os seguintes métodos:
+  1. Um construtor, com todos os parametros opcionais (note que o valor padrão de 'a' deveria ser 255, pois o valor de alpha ser 0 significa uma cor transparente)
+
+  Com isso fora do caminho, podemos continuar.
+  
+  No gerenciador gráfico, adicione o seguinte atributo:
+  1. Um sf::Font fonte, que será a fonte usada para escrever texto (inicializada no construtor)
+  E os seguintes métodos:
+  1. void desenharRetanguloSolido() const, que toma como argumentos a posição do centro, as dimensões de um retângulo, e a cor desse retângulo
+  2. void DesenharTexto() const, que toma como parâmetros uma string, a posição onde o texto deverá ser desenhado, o tamanho do texto e um bool "centralizar" com valor padrão true, que controla se o texto deve ser centralizado.
+
+  A ideia é que, ao criar um botão, passaremos para ele um método que será chamado quando ele for apertado. 
+
+  Criar uma classe Botão, com os seguintes atributos:
+  1. Uma Vetor2F posicao privado
+  2. Uma Vetor2F tamanho privado
+  3. Uma Cor cor privada
+  4. Um std::String texto protegido
+  5. um std::function<void(void)> (uma função sem parâmetros nem retorno) quandoApertado protegido
+  E os seguintes métodos:
+  1. Um construtor que inicializa todos os parâmetros acima
+  2. Um destrutor vazio
+  3. Um método desenhar que toma como parâmetro uma referência constante para o gerenciador gráfico
+  4. getters para posicao e tamanho
+  5. Um método apertar, que chama a função em quandoApertado.
+
+  Para gerenciar esses botões, teremos um GerenciadorBotoes, que basicamente atua como o gerenciador de colisoes misturado com a lista de Desenhaveis, mas apenas para botões.
+
+  Crie uma classe GerenciadorBotoes, com os seguintes atributos:
+  1. Um std:vector<*Botao> botoes privado
+  2. Uma referência para um GerenciadorEventos privada
+  3. um unsigned int idOuvinteMouse privado
+  E os seguintes métodos:
+  1. Um construtor, que toma como parâmetros um std::vector<*Botao> e uma referência para um GerenciadorEventos, inicializando todas os atributos
+  2. Um destrutor, que destroi todos os Botoes
+  3. Um método desenhar(), que desenha todos os botões
+  4. Um método ouvinteMouse(), que, quando o botão esquerdo do mouse é solto, verifica se isso ocorreu sobre um botão, chamando seu método apertar caso sim.
+  5. Um método adicionarBotao() que adiciona um ponteiro para Botão no vetor
+
+  E agora, criaremos uma classe abstrata Menu, que terá o comportamento normal de um menu, ou seja, esperar o usuário clicar em botões. 
+  Para um menu normal, 
+
+  Crie uma classe Menu extendendo Estado, com os seguintes atributos:
+  1. Um GerenciadorEventos protegido
+  2. Um GerenciadorBotoes protegido
+  3. Um CodigoRetorno protegido, que representa o retorno de executar()
+   e os seguintes métodos:
+  4. Um destrutor virtual vazio
+  5. O método executar, que retorna o código de retorno apropriado para o botão que for pressionado. Esse método é virtual.
+  6. Um método protegido setCodigoRetorno()
+  7. Um método virtual puro inicializar(), que inicializa a lista de botões (precisa ser assim por questões de simplicidade na declaração dos ouvintes dos botões)
+
+Criaremos também uma classe MenuPrincipal, que permite entrar na FaseExemplo ou sair do jogo.
