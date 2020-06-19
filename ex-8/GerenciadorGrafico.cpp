@@ -10,6 +10,7 @@ namespace exercicio {
     text{nullptr}
   {
     janela->setView(camera);
+    fonte.loadFromFile("../assets/CantoraOne-Regular.ttf");
   }
 
   GerenciadorGrafico::~GerenciadorGrafico() {
@@ -121,6 +122,38 @@ namespace exercicio {
     sf::Vector2u dimensoes = (texturas.at(caminho))->getSize();
     
     return Vetor2F(dimensoes.x, dimensoes.y);
+  }
+
+  void GerenciadorGrafico::desenharRetanguloSolido(const Vetor2F centro, const Vetor2F dimensao, const Cor cor) const {
+    sf::RectangleShape retangulo = sf::RectangleShape({dimensao.x, dimensao.y});
+    retangulo.setFillColor({cor.r, cor.g, cor.b, cor.a});
+    retangulo.setOrigin(dimensao.x/2, dimensao.y/2);
+    retangulo.setPosition(centro.x, centro.y);
+    janela->draw(retangulo);
+  }
+
+  void GerenciadorGrafico::desenharTexto(const std::string texto, const Vetor2F posicao, unsigned int tamanho, const bool centralizar = true) const {
+    sf::Text txt = sf::Text(texto, fonte, tamanho);
+    txt.setFillColor(sf::Color::White);
+    if (centralizar) {
+      sf::FloatRect tam = txt.getGlobalBounds();
+      txt.setOrigin(tam.width/2, tam.height/2);
+    }
+    txt.setPosition(posicao.x, posicao.y);
+    janela->draw(txt);
+  }
+
+  Vetor2F GerenciadorGrafico::getPosicaoMouse() const {
+    sf::Vector2i posRelacaoJanela = sf::Mouse::getPosition(*janela);
+    sf::Vector2u tamanhoJanela = janela->getSize();
+    sf::Vector2f tamanhoCamera = camera.getSize();
+    sf::Vector2f posicaoCamera = camera.getCenter() - tamanhoCamera/2.0f;
+
+    return {
+      (posRelacaoJanela.x/tamanhoJanela.x)*tamanhoCamera.x + posicaoCamera.x, 
+      (posRelacaoJanela.y/tamanhoJanela.y)*tamanhoCamera.y + posicaoCamera.y
+    };
+
   }
 
 }

@@ -7,6 +7,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "Vetor2D.hpp"
+#include "Cor.hpp"
 
 namespace exercicio {
 
@@ -17,6 +18,7 @@ namespace exercicio {
       std::map<const std::string, sf::Texture*> texturas;
       sf::Texture* text;
       sf::Sprite sprite;
+      sf::Font fonte;
 
     public:
       GerenciadorGrafico();
@@ -29,6 +31,10 @@ namespace exercicio {
       void centralizar(const Vetor2F centro);
       sf::RenderWindow* getJanela() const;
       const Vetor2F getTamanho(const std::string& caminho) const;
+      void desenharRetanguloSolido(const Vetor2F centro, const Vetor2F dimensao, const Cor cor) const;
+      void desenharTexto(const std::string texto, const Vetor2F posicao, unsigned int tamanho, const bool centralizar = true) const;
+      Vetor2F getPosicaoMouse() const;
+
 
   };
 

@@ -265,6 +265,7 @@ Além disso, criaremos implementações dessas duas classes, simplesmente adequa
   E os seguintes métodos:
   1. void desenharRetanguloSolido() const, que toma como argumentos a posição do centro, as dimensões de um retângulo, e a cor desse retângulo
   2. void DesenharTexto() const, que toma como parâmetros uma string, a posição onde o texto deverá ser desenhado, o tamanho do texto e um bool "centralizar" com valor padrão true, que controla se o texto deve ser centralizado.
+  3. Vetor2F getPosicaoMouse() const, que retorna a posição atual do mouse dentro da janela.
 
   A ideia é que, ao criar um botão, passaremos para ele um método que será chamado quando ele for apertado. 
 
@@ -286,9 +287,10 @@ Além disso, criaremos implementações dessas duas classes, simplesmente adequa
   Crie uma classe GerenciadorBotoes, com os seguintes atributos:
   1. Um std:vector<*Botao> botoes privado
   2. Uma referência para um GerenciadorEventos privada
-  3. um unsigned int idOuvinteMouse privado
+  3. Uma referência privada para o GerenciadorGrafico
+  4. um unsigned int idOuvinteMouse privado
   E os seguintes métodos:
-  1. Um construtor, que toma como parâmetros um std::vector<*Botao> e uma referência para um GerenciadorEventos, inicializando todas os atributos
+  1. Um construtor, que toma como parâmetros um std::vector<*Botao>, uma referência para um GerenciadorEventos e uma para um GerenciadorGrafico, inicializando todas os atributos
   2. Um destrutor, que destroi todos os Botoes
   3. Um método desenhar(), que desenha todos os botões
   4. Um método ouvinteMouse(), que, quando o botão esquerdo do mouse é solto, verifica se isso ocorreu sobre um botão, chamando seu método apertar caso sim.
