@@ -9,6 +9,7 @@ namespace exercicio {
   }
 
   int Menu::executar()  {
+    codigoRetorno = CodigoRetorno::continuar;
     ge.tratarEventos();
     gb.desenhar();
     return codigoRetorno;
@@ -17,5 +18,4 @@ namespace exercicio {
   void Menu::setCodigoRetorno(int codigo) {
     codigoRetorno = codigo;
   }
-
 }

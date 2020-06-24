@@ -249,7 +249,7 @@ Portanto, criaremos 4 classes:
 
 Além disso, criaremos implementações dessas duas classes, simplesmente adequando as funcionalidades já existentes do programa para esse novo modelo.
 
-## Ex 8 -  Menus e Elementos de Menu - 1 : Botões
+## Ex 8a -  Menus e Elementos de Menu - 1 : Botões
   Um dos vários requisitos do jogo é a implementação de, no mínimo, um menu principal e um de pausa. iremos criar menus com botões e entrada de texto, cujos botões podem ser selecionados com o  mouse, e entrada do texto suportando letras, números e espaços. Para isso, serão necessárias modificações no gerenciador gráfico. Antes disso, criaremos uma pequena classe ajudante:
 
   Crie uma classe Cor, com:
@@ -278,7 +278,7 @@ Além disso, criaremos implementações dessas duas classes, simplesmente adequa
   E os seguintes métodos:
   1. Um construtor que inicializa todos os parâmetros acima
   2. Um destrutor vazio
-  3. Um método desenhar que toma como parâmetro uma referência constante para o gerenciador gráfico
+  3. Um método virtual desenhar que toma como parâmetro uma referência constante para o gerenciador gráfico
   4. getters para posicao e tamanho
   5. Um método apertar, que chama a função em quandoApertado.
 
@@ -310,3 +310,30 @@ Além disso, criaremos implementações dessas duas classes, simplesmente adequa
   7. Um método virtual puro inicializar(), que inicializa a lista de botões (precisa ser assim por questões de simplicidade na declaração dos ouvintes dos botões)
 
 Criaremos também uma classe MenuPrincipal, que permite entrar na FaseExemplo ou sair do jogo.
+
+## Ex 8b - entrada de texto.
+Além de precisarmos de botões, precisaremos também de entradas de texto, pois um dos requisitos do jogo é permitir que os jogadores coloquem seus nomes. Para isso, usaremos basicamente duas novas classes: um CampoTexto, que gerencia a parte gráfica, e uma PromessaString, que guarda a String sendo criada.
+
+  Crie uma classe PromessaString com os seguintes atributos:
+  1. Uma String privada string, que guardará a string sendo construída
+  2. Um unsigned int idOuvinteTeclado, que guardara a id da ouvinte usada
+  3. Um bool privado capturaIniciada, que controla se a captura está acontecendo
+  4. Um bool privado stringPronta, que controla se a string terminou de ser adquirida
+  5. Uma referência para GerenciadorEventos, onde o ouvinte será colocado.
+  6. Um unsigned short comprimentoMaximo, que representa o máximo comprimento aceitável para a string
+  E os seguintes métodos: 
+  1. Um construtor que toma como parâmetros uma referência para GerenciadoEventos e o comprimento aceitável, inicializando os outros parâmetros.
+  2. Um destrutor que remove o ouvinte do GerenciadorEventos.
+  3. Um método começar, que esvazia a string e começa a aquisição da string
+  4. getters para a string e para stringPronta
+  5. um método privado adquirir, que será passado como ouvinte para o gerenciador de eventos. Basicamente, se o usuário digitar letras, números e espaços, os adiciona a string (se o tamanho da string for menor ou igual ao máximo), se apertar enter termina a aquisição (removendo o ouvinte), e se apertar backspace tira um caractere.
+
+  Crie uma classe CampoTexto que herda de Botao com os seguintes atributos:
+  1. Uma PromessaString privada
+  e os seguintes métodos:
+  1. Um construtor que toma como parâmetros uma referência para GerenciadorEventos e um tamanho máximo de string(passados para o construtor de PromessaString), além de uma posicao, tamanho, tamanho do texto e cor para passar para o construtor de Botao.
+  2. Um destrutor vazio.
+  3. Um método getString que só retorna a string se getStringPronta retornar true
+  4. um método getStringPronta que só "passa para a frente" o resultado tirado da PromessaString
+  5. Um método desenhar que sobreescreve o normal imprimindo o texto sem centralizá-lo (se isso parecer mais estéticamente agradável pra você)
+  6. Um método iniciarCaptura, que será passado para quandoApertado no construtor e começa uma nova captura se ela já não começou.

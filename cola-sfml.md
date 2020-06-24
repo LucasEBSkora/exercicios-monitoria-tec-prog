@@ -90,13 +90,17 @@ sf::Vector2f sf::Texture::getSize()
 
 que retorna as dimensões da textura (em pixels)
 
+# classe sf::Color
+Representa uma cor no SFML. Seu construtor precisa de 3 valores de cor obrigatórios (r, g, e b) e um quarto opcional (a)
+
+# classe sf::Font
+Uma fonte usada para desenhar texto. Construtor vazio, mas tem um método loadFromFile que toma um caminho para um arquivo de fonte (no formato ttf, por exemplo).
+
+# classe sf::Text 
+Representa uma String dentro do sfml. Seu construtor toma como parâmetros uma string, uma sf::Font e o tamanho que deve ser usado para o texto (unsigned int). Para descobrir o tamanho necessário para imprimir o texto, há o getter setGlobalBounds, e também há os getters e setters para Origin e Position.
+
 # classe sf::RectangleShape
-Essa classe é um retângulo onde se pode desenhar algo retângular, seja uma textura, seja um retângulo colorido. Embora possa ser usado para substituir sf::Sprite, é mais pesada, pois possui métodos para gerenciar cor interna, cor de borda, grossura da borda, etc.
-
-seu construtor aceita um parâmetro (opcional) que é um sf::Vector2f representando seu tamanho.
-
-sf::RectangleShape(sf::Vector2f &size);
-
+Essa classe é um retângulo onde se pode deseSprite
 Essa classe é uma das que você mais manipulará, e, por isso, tem muitos métodos úteis.
 
 Para os seguintes valores, essa classe tem funções get e set:
@@ -105,9 +109,10 @@ Para os seguintes valores, essa classe tem funções get e set:
 2. sf::Texture Texture (textura sendo desenhada dentro do retângulo)
 3. sf::Vector2f Position (a posição desse retângulo quando ele for desenhado na tela)
 4. sf::Vector2f Origin (a origem a ser utilizada para o objeto. Quando ele for desenhado, a origem será o ponto que ficará na posição especificada em Position. (a explicação tá ruim, mas teste o que acontece)
+5. FillColor (Um objeto sf::Color com a cor de preenchimento do retângulo, se você estiver utilizando-o de verdade como um retângulo)
 
 Além disso, existe a função 
-sf::Sprite::move(sf::Vector2f &offset), que soma o vetor passado à posição atual do objeto.
+sf::RectShape::move(sf::Vector2f &offset), que soma o vetor passado à posição atual do objeto.
 
 Exemplos de uso:
 
@@ -117,8 +122,6 @@ sf::Texture playerTexture;
 playerTexture.loadFromFile("walk2.png");
 body.setTexture(texture);
 body.setOrigin(body.getSize() / 2.0f); //Coloca a origem no centro do retângulo
-
-
 
 
 # class sf::Sprite

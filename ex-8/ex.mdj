@@ -16323,7 +16323,7 @@
 											"top": 1313,
 											"width": 248.9169921875,
 											"height": 13,
-											"text": "#codigoRetorno: int",
+											"text": "-codigoRetorno: int",
 											"horizontalAlignment": 0
 										},
 										{
@@ -23327,7 +23327,7 @@
 								"$ref": "AAAAAAFyzc77kUl5pKg="
 							},
 							"name": "codigoRetorno",
-							"visibility": "protected",
+							"visibility": "private",
 							"type": "int"
 						},
 						{
