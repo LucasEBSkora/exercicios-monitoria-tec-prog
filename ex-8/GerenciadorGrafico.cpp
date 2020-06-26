@@ -132,7 +132,7 @@ namespace exercicio {
     janela->draw(retangulo);
   }
 
-  void GerenciadorGrafico::desenharTexto(const std::string texto, const Vetor2F posicao, unsigned int tamanho, const bool centralizar = true) const {
+  void GerenciadorGrafico::desenharTexto(const std::string texto, const Vetor2F posicao, unsigned int tamanho, const bool centralizar/* = true*/) const {
     sf::Text txt = sf::Text(texto, fonte, tamanho);
     txt.setFillColor(sf::Color::White);
     if (centralizar) {
@@ -150,8 +150,8 @@ namespace exercicio {
     sf::Vector2f posicaoCamera = camera.getCenter() - tamanhoCamera/2.0f;
 
     return {
-      (posRelacaoJanela.x/tamanhoJanela.x)*tamanhoCamera.x + posicaoCamera.x, 
-      (posRelacaoJanela.y/tamanhoJanela.y)*tamanhoCamera.y + posicaoCamera.y
+      (posRelacaoJanela.x/(float)tamanhoJanela.x)*tamanhoCamera.x + posicaoCamera.x, 
+      (posRelacaoJanela.y/(float)tamanhoJanela.y)*tamanhoCamera.y + posicaoCamera.y
     };
 
   }

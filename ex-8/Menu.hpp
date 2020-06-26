@@ -21,12 +21,11 @@ namespace exercicio {
     
     public:
       Menu(GerenciadorGrafico& GG);
-      ~Menu();
+      virtual ~Menu();
       int executar() override;
 
     protected:
       void setCodigoRetorno(int codigo);
-      virtual void inicializar() = 0;
   };
 }
 

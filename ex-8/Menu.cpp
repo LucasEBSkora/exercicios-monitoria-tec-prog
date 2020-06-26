@@ -2,10 +2,15 @@
 
 #include "GerenciadorTelas.hpp"
 
+
+
 namespace exercicio {
   Menu::Menu(GerenciadorGrafico& GG) : codigoRetorno{CodigoRetorno::continuar}, gb{ge, GG}, gg{GG} {
     ge.setJanela(gg.getJanela());
-    inicializar();
+  }
+
+  Menu::~Menu() {
+
   }
 
   int Menu::executar()  {

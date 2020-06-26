@@ -10,7 +10,8 @@ namespace exercicio {
 
   enum CodigoRetorno { 
     continuar, 
-    terminarJogo
+    terminarJogo,
+    irPrimeiraFase,
   };
 
 

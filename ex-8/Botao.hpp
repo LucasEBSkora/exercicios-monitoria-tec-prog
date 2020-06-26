@@ -23,7 +23,7 @@ namespace exercicio {
 
     public:
       Botao(Vetor2F Posicao = {0.0f, 0.0f}, Vetor2F Tamanho = {0.0f, 0.0f}, std::string Texto = "", std::function<void(void)> QuandoApertado = std::function<void(void)>(), unsigned int tamTexto = 15U, Cor c = {128, 128, 128});
-      ~Botao();
+      virtual ~Botao();
       virtual void desenhar(GerenciadorGrafico& gg) const;
       Vetor2F getPosicao() const;
       Vetor2F getTamanho() const;
