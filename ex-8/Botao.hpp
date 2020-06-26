@@ -12,13 +12,13 @@
 namespace exercicio {
   class Botao {
     private:
+      std::function<void(void)> quandoApertado;
+    
+    protected:
       Vetor2F posicao;
       Vetor2F tamanho;
       Cor cor;
       unsigned int tamanhoTexto;
-      std::function<void(void)> quandoApertado;
-    
-    protected:
       std::string texto;
 
     public:

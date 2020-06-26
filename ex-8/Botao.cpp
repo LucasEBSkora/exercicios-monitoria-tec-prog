@@ -2,7 +2,7 @@
 
 namespace exercicio {
   Botao::Botao(Vetor2F Posicao/* = {0.0f, 0.0f}*/, Vetor2F Tamanho/* = {0.0f, 0.0f}*/, std::string Texto/* = ""*/, std::function<void(void)> QuandoApertado/* = std::function<void(void)>()*/, unsigned int tamTexto/* = 15U*/, Cor c/* = {128, 128, 128}*/) :
-  posicao{Posicao}, tamanho{Tamanho}, cor{c}, tamanhoTexto{tamTexto}, quandoApertado{QuandoApertado}, texto{Texto}  {}
+   quandoApertado{QuandoApertado}, posicao{Posicao}, tamanho{Tamanho}, cor{c}, tamanhoTexto{tamTexto}, texto{Texto}  {}
 
   Botao::~Botao() {
 

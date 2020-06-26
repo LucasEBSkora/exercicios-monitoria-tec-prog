@@ -4,7 +4,7 @@ namespace exercicio {
 
   //unsigned int GerenciadorEventos::proximoID = 0; :(
   //unsigned int GerenciadorEventos::proximoID(0);  :|
-  unsigned int GerenciadorEventos::proximoID{0}; // :)
+  unsigned int GerenciadorEventos::proximoID{1}; // :)
   
   
 
@@ -23,14 +23,15 @@ namespace exercicio {
       if (evento.type == sf::Event::MouseWheelScrolled 
         || evento.type == sf::Event::MouseButtonPressed
         || evento.type == sf::Event::MouseButtonReleased
-        || evento.type == sf::Event::MouseMoved ) {
+        /*|| evento.type == sf::Event::MouseMoved*/ ) {
           
         for (auto it : ouvintesMouse) {
           it.second(evento);
         }
 
       } else if (evento.type == sf::Event::KeyPressed 
-        || evento.type == sf::Event::KeyReleased) {
+        || evento.type == sf::Event::KeyReleased
+        || evento.type == sf::Event::TextEntered) {
         
         for (auto it : ouvintesTeclado) {
           it.second(evento);

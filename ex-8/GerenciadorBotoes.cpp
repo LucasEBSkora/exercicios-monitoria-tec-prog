@@ -1,5 +1,5 @@
 #include "GerenciadorBotoes.hpp"
-#include <iostream>
+
 #include <math.h>
 namespace exercicio {
   GerenciadorBotoes::GerenciadorBotoes(GerenciadorEventos& GE, GerenciadorGrafico& GG, std::vector<Botao*> Botoes/* = {}*/) : botoes{Botoes}, ge{GE}, gg{GG} {
@@ -19,7 +19,7 @@ namespace exercicio {
     if (e.type == sf::Event::MouseButtonReleased) { //se ocorrer um clique, verificar se foi em cima de algum botão
 
       Vetor2F posicaoMouse = gg.getPosicaoMouse();
-      std::cout << posicaoMouse << std::endl;
+
       for(Botao* b : botoes) {
         Vetor2F posicaoCentroBotao = b->getPosicao();
         Vetor2F tamanhoBotao = b->getTamanho();

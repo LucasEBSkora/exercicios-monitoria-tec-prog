@@ -22,7 +22,7 @@ namespace exercicio {
     public:
       Menu(GerenciadorGrafico& GG);
       virtual ~Menu();
-      int executar() override;
+      virtual int executar() override;
 
     protected:
       void setCodigoRetorno(int codigo);
