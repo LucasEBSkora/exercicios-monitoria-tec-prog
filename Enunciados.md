@@ -337,3 +337,16 @@ Além de precisarmos de botões, precisaremos também de entradas de texto, pois
   4. um método getStringPronta que só "passa para a frente" o resultado tirado da PromessaString
   5. Um método desenhar que sobreescreve o normal imprimindo o texto sem centralizá-lo (se isso parecer mais estéticamente agradável pra você)
   6. Um método iniciarCaptura, que será passado para quandoApertado no construtor e começa uma nova captura se ela já não começou.
+
+## Ex 9 - Salvar o jogo
+Um dos últimos grandes requisitos que faltam é a capacidade de salvar e carregar uma partida do seu jogo. Para isso, iremos utilizar de volta a biblioteca externa json, usada antes para carregar os tilemaps no programa. Além disso, a técnica desenvolvida aqui utilizará os conceitos de herança múltipla e sobrecarga de construtores. Aqui só iremos utilizar duas novas classes, pois ambas seram herdadas por várias outras:
+  classe Serializavel: 
+    Crie uma classe Serializavel com o seguinte método:
+    1. Um método virtual puro paraJson, que retorna um objeto json representando aquele objeto e que tem todas as informações necessárias para inicializá-lo;
+    obs. as classes que estenderem essa provavelmente precisarão de um construtor no qual há um parametro JSON ou um método para inicializá-los que o recebe. Como não sabemos a assinatura desses métodos, não é possível forçar as classes que herdam de Serializavel a implementá-lo
+    
+    E uma classe Salvavel (ela própria extendendo Serializavel) com os seguintes métodos:
+    1. salvar, que toma como parâmetro uma string com um caminho para arquivo e salva esse objeto nesse arquivo;
+    2. carregar, que toma como parâmetro uma string com um caminho para arquivo e inicializa esse objeto com as informações contidas no arquivo;
+
+Um exemplo do seu uso seria Heroi e Vilao como Serializaveis e FaseExemplo como Salvavel. Iremos construir esse exemplo, criando uma classe Fase separada, menu de pausa, etc.
