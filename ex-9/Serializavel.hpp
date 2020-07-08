@@ -7,7 +7,8 @@
 namespace exercicio {
   class Serializavel {
     public:
-      virtual nlohmann::json paraJSON() =0 ;
+      virtual ~Serializavel();
+      virtual nlohmann::json paraJSON() =0;
   };
 }
 

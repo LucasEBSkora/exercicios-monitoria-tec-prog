@@ -6,6 +6,7 @@
 
 namespace exercicio {
   Menu::Menu(GerenciadorGrafico& GG) : codigoRetorno{CodigoRetorno::continuar}, gb{ge, GG}, gg{GG} {
+    gg.centralizar(gg.getTamanhoTela()*0.5);
     ge.setJanela(gg.getJanela());
   }
 

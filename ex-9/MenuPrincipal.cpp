@@ -6,9 +6,10 @@
 
 namespace exercicio {
   MenuPrincipal::MenuPrincipal(GerenciadorGrafico& GG) : Menu(GG), imprimiu{false},
-  campoTexto{ge, 15, {400.0f, 300.0f}, {200, 50}} {
-    gb.adicionarBotao(new Botao({400.0f, 200.0f}, {100, 50}, "Primeira fase", [this] {setCodigoRetorno(irPrimeiraFase);} ));
-    gb.adicionarBotao(new Botao({400.0f, 400.0f}, {100, 50}, "Sair do jogo", [this] {setCodigoRetorno(terminarJogo);} ));
+  campoTexto{ge, 15, {200.0f, 50.0f}, {200, 40}} {
+    gb.adicionarBotao(new Botao({200.0f, 100.0f}, {100, 40}, "Primeira fase", [this] {setCodigoRetorno(comecarPrimeiraFase);} ));
+    gb.adicionarBotao(new Botao({200.0f, 150.0f}, {100, 40}, "carregar jogo", [this] {setCodigoRetorno(carregarJogo);} ));
+    gb.adicionarBotao(new Botao({200.0f, 200.0f}, {100, 40}, "Sair do jogo", [this] {setCodigoRetorno(terminarJogo);} ));
     gb.adicionarBotao(&campoTexto);
   }
 

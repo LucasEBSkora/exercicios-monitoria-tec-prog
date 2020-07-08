@@ -108,6 +108,10 @@ namespace exercicio {
     janela->setView(camera); //A RenderWindow faz uma cópia da View ao invés de usar o ponteiro, então é preciso a sobre-escrever sempre que for modificada.
   }
 
+  const Vetor2F GerenciadorGrafico::getTamanhoTela() const {
+    return {camera.getSize().x, camera.getSize().y};
+  }
+
   sf::RenderWindow* GerenciadorGrafico::getJanela() const {
     return janela;
   }

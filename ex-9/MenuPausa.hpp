@@ -6,7 +6,8 @@
 
 namespace exercicio {
   class MenuPausa : public Menu {
-    MenuPausa(GerenciadorGrafico& gg);
+    public:
+      MenuPausa(GerenciadorGrafico& gg);
   };
 }
 

@@ -5,7 +5,12 @@
 
 
 namespace exercicio {
-  bool Salvavel::salvar(const std::string& caminho) const {
+
+  Salvavel::~Salvavel() {
+
+  }
+
+  bool Salvavel::salvar(const std::string& caminho) {
     std::ofstream arquivo(caminho);
     if (arquivo.fail()) return false;
     arquivo << paraJSON();

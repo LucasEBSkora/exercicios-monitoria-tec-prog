@@ -13,20 +13,21 @@
 #include "Desenhavel.hpp"
 #include "Heroi.hpp"
 
+#include "Relogio.hpp"
+
 namespace exercicio {
   class Fase : public Estado, public Salvavel {
     protected: 
       GerenciadorGrafico& gerenciadorGrafico;
       Heroi* jogador1;
-
       GerenciadorEventos gerenciadorEventos;
       GerenciadorColisoes gerenciadorColisoes;
-      GerenciadorTiles gerenciadorTiles;
-      sf::Clock relogio; //vide cola
+      GerenciadorTiles* gerenciadorTiles;
+      Relogio relogio; //vide cola
       ListaDesenhaveis listaAmigos;
 
     public: 
-      Fase(GerenciadorGrafico& gg, GerenciadorTiles gt, Heroi* jogador1 = nullptr);
+      Fase(GerenciadorGrafico& gg, GerenciadorTiles* gt, Heroi* jogador1 = nullptr);
       //Construtor sem parâmetros não é necessário pois ele não existe em classes com atributos que são referências
       ~Fase();
       int executar() override;

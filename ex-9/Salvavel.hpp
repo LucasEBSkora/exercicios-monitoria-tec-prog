@@ -5,8 +5,10 @@
 
 namespace exercicio {
   class Salvavel : public Serializavel {
-    bool salvar(const std::string& caminho) const; 
-    virtual void carregar(const std::string& caminho) = 0; 
+    public:
+      virtual ~Salvavel();
+      bool salvar(const std::string& caminho); 
+      virtual void carregar(const std::string& caminho) = 0; 
   };
 }
 

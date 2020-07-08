@@ -4,7 +4,7 @@ src = ['main.cpp', 'Desenhavel.cpp', 'Principal.cpp', 'ListaDesenhaveis.cpp', 'G
  'Heroi.cpp', 'Colidivel.cpp', 'GerenciadorColisoes.cpp', 'GerenciadorTiles.cpp', 'Tile.cpp', 'TileMap.cpp', 'Estado.cpp', 'GerenciadorTelas.cpp',
  'FaseExemplo.cpp', 'GerenciadorEstados.cpp', 'Botao.cpp', 'GerenciadorBotoes.cpp', 'Menu.cpp', 'MenuPrincipal.cpp', 'Cor.cpp',
  'CampoTexto.cpp', 'PromessaTexto.cpp',
- 'Fase.cpp', 'MenuPausa.cpp', 'salvavel.cpp']
+ 'Fase.cpp', 'MenuPausa.cpp', 'Salvavel.cpp', 'Serializavel.cpp', 'Relogio.cpp']
 
 deps = [dependency('sfml-all')]
 

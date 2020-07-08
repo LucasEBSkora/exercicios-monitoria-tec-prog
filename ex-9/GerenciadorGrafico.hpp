@@ -29,11 +29,13 @@ namespace exercicio {
       void desenhar(const std::string& caminho, const Vetor2F posicao, const Vetor2U numeroFrames, const Vetor2U frame);
       bool carregarTextura(const std::string& caminho);
       void centralizar(const Vetor2F centro);
+      const Vetor2F getTamanhoTela() const;
       sf::RenderWindow* getJanela() const;
       const Vetor2F getTamanho(const std::string& caminho) const;
       void desenharRetanguloSolido(const Vetor2F centro, const Vetor2F dimensao, const Cor cor) const;
       void desenharTexto(const std::string texto, const Vetor2F posicao, unsigned int tamanho, const bool centralizar = true) const;
       Vetor2F getPosicaoMouse() const;
+
 
 
   };

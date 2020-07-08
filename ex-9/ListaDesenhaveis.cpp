@@ -89,7 +89,7 @@ namespace exercicio {
 
     while (p) {
       
-      resultado[posicao++] == p->paraJSON();
+      resultado[posicao++] = p->paraJSON();
 
       p = lista.irProximo();
 

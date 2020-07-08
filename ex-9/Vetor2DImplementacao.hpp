@@ -9,7 +9,7 @@ namespace exercicio {
   }
 
   template <typename T>
-  Vetor2D<T>::Vetor2D(nlohmann::json j) : x{static_cast<T>j["x"]}, y{static_cast<T>j["x"]} {
+  Vetor2D<T>::Vetor2D(nlohmann::json j) : x{static_cast<T>(j["x"])}, y{static_cast<T>(j["y"])} {
     
   }
 
@@ -103,7 +103,7 @@ namespace exercicio {
   }
   template <typename T>
   nlohmann::json Vetor2D<T>::paraJSON() {
-    return {"x" : x, "y", y};
+    return {{"x", x}, {"y", y}};
   }
 
   template <typename T>

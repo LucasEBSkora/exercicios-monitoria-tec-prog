@@ -6,18 +6,18 @@
 #include <fstream>
 
 namespace exercicio {
-  FaseExemplo::FaseExemplo(GerenciadorGrafico& gg, Heroi* jogador1 = nullptr) : Fase{gg,
-  {
+  FaseExemplo::FaseExemplo(GerenciadorGrafico& gg, Heroi* jogador1/* = nullptr*/) : Fase{gg,
+  new GerenciadorTiles{
     {
-      new Tile(Ids::semID, "../assets/TileVazio.png", {32.0f, 32.0f}),
-      new Tile(Ids::parede, "../assets/TempleWallTile.png", {32.0f, 32.0f}),
-      new Tile(Ids::espinho, "../assets/TempleSpikeObstacle.png", {32.0f, 32.0f}),
-      new Tile(Ids::fimDaFase, "../assets/LevelEndTile.png", {32.0f, 32.0f}),
-      new Tile(Ids::parede, "../assets/PlayerSpawnPoint.png", {32.0f, 32.0f}),
-      new Tile(Ids::buracoInfinito, "../assets/HoleObstacle.png", {32.0f, 32.0f}),
-      new Tile(Ids::parede, "../assets/CavernWallTile.png", {32.0f, 32.0f}),
-      new Tile(Ids::espinho, "../assets/CavernSpikeObstacle.png", {32.0f, 32.0f}),
-      new Tile(Ids::armadilha, "../assets/BulletObstacle.png", {32.0f, 32.0f}),
+      new Tile(Ids::semID, "../assets/TileVazio.png"),
+      new Tile(Ids::parede, "../assets/TempleWallTile.png"),
+      new Tile(Ids::espinho, "../assets/TempleSpikeObstacle.png"),
+      new Tile(Ids::fimDaFase, "../assets/LevelEndTile.png"),
+      new Tile(Ids::parede, "../assets/PlayerSpawnPoint.png"),
+      new Tile(Ids::buracoInfinito, "../assets/HoleObstacle.png"),
+      new Tile(Ids::parede, "../assets/CavernWallTile.png"),
+      new Tile(Ids::espinho, "../assets/CavernSpikeObstacle.png"),
+      new Tile(Ids::armadilha, "../assets/BulletObstacle.png"),
     },
     {32.0f, 32.0f}, "../assets/tilemap.json"
   }
