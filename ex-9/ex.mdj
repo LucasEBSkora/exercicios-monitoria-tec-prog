@@ -20928,7 +20928,7 @@
 											"top": 1478,
 											"width": 182,
 											"height": 13,
-											"text": "-ultimo: time_t",
+											"text": "-ultimo: clock_t",
 											"horizontalAlignment": 0
 										},
 										{
@@ -20946,7 +20946,7 @@
 											"top": 1493,
 											"width": 182,
 											"height": 13,
-											"text": "-atual: time_t",
+											"text": "-atual: clock_t",
 											"horizontalAlignment": 0
 										},
 										{
@@ -28467,7 +28467,7 @@
 							},
 							"name": "ultimo",
 							"visibility": "private",
-							"type": "time_t"
+							"type": "clock_t"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -28477,7 +28477,7 @@
 							},
 							"name": "atual",
 							"visibility": "private",
-							"type": "time_t"
+							"type": "clock_t"
 						},
 						{
 							"_type": "UMLAttribute",
