@@ -7,7 +7,7 @@ namespace exercicio {
 
   GerenciadorTelas::GerenciadorTelas(GerenciadorGrafico& gg, Heroi* jogador1 /*= nullptr*/) : 
     gerenciadorGrafico{gg}, jogador1{jogador1} {
-    pushEstado(new MenuPrincipal(gerenciadorGrafico));
+    push(new MenuPrincipal(gerenciadorGrafico));
   }
 
   bool GerenciadorTelas::processarCodigo(int codigoRetorno) {
@@ -15,7 +15,7 @@ namespace exercicio {
       case terminarJogo: 
         return true;
       case irPrimeiraFase:
-        pushEstado(new FaseExemplo(gerenciadorGrafico, jogador1));
+        push(new FaseExemplo(gerenciadorGrafico, jogador1));
         return false;
         break;
 

@@ -13,8 +13,8 @@ namespace exercicio {
       virtual ~GerenciadorEstados();
       bool executar();
     protected:
-      void pushEstado(Estado* p);
-      void popEstado();
+      void push(Estado* p);
+      void pop();
       void esvaziarPilha();
       virtual bool processarCodigo(int codigoRetorno) = 0;
 

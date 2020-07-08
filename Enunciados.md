@@ -240,8 +240,8 @@ Portanto, criaremos 4 classes:
 
   E os seguintes métodos:
   1. construtor e destrutor
-  2. método protegido pushEstado(), que recebe um ponteiro para estado e o coloca na pilha
-  3. método protegido popEstado(), que tira o estado do topo da pilha
+  2. método protegido push(), que recebe um ponteiro para estado e o coloca na pilha
+  3. método protegido pop(), que tira o estado do topo da pilha
   4. método protegido esvaziaPilha(), que tem como parâmetro opcional um ponteiro para Estado. Esse método esvazia a pilha, e, se um ponteiro não-nulo for passado, o adiciona à pilha.
   5. método público executar(), que retorna um valor booleano (que representa se o programa deve terminar de executar) e chama o método executar do Estado no topo da pilha
   6. método público virtual puro inicializar(), que carrega o estado inicial da pilha
